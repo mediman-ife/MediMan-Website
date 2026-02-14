@@ -88,28 +88,36 @@ export function Header() {
                 </div>
             </div>
             {/* Mobile Menu - Glass Overlay */}
-            {mobileMenuOpen && (
-                <div className="fixed inset-0 top-20 z-40 bg-white/95 backdrop-blur-xl border-t border-gray-100 p-6 lg:hidden animate-in slide-in-from-top-5">
-                    <nav className="flex flex-col gap-6">
-                        {navigation.map((item) => (
-                            <Link
-                                key={item.href}
-                                href={item.href}
-                                className="text-lg font-medium text-slate-800 hover:text-brand-blue transition-colors"
-                                onClick={() => setMobileMenuOpen(false)}
-                            >
-                                {item.name}
-                            </Link>
-                        ))}
-                        <div className="h-px bg-gray-100 my-2" />
-                        <Link href="https://play.google.com/store/apps/details?id=com.mediman.life">
-                            <Button className="w-full bg-brand-red hover:bg-brand-red-dark text-white rounded-full py-6 text-lg">
-                                Download App
-                            </Button>
-                        </Link>
-                    </nav>
+            {/* Mobile Menu - Full Screen Overlay */}
+            {/* Mobile Menu - Full Screen Overlay */}
+            <div className={`fixed inset-0 z-[9999] bg-white h-screen w-screen p-6 lg:hidden flex flex-col overflow-y-auto transition-transform duration-300 ease-in-out ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+                <div className="flex items-center justify-between mb-8 shrink-0">
+                    <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+                        <img src="/images/logo.svg" alt="MediMan" className="h-10 w-auto" />
+                    </Link>
+                    <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)}>
+                        <X className="h-6 w-6 text-slate-800" />
+                    </Button>
                 </div>
-            )}
+                <nav className="flex flex-col gap-6">
+                    {navigation.map((item) => (
+                        <Link
+                            key={item.href}
+                            href={item.href}
+                            className="text-xl font-medium text-slate-800 hover:text-brand-blue transition-colors"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            {item.name}
+                        </Link>
+                    ))}
+                    <div className="h-px bg-gray-100 my-2" />
+                    <Link href="https://play.google.com/store/apps/details?id=com.mediman.life" onClick={() => setMobileMenuOpen(false)}>
+                        <Button className="w-full bg-brand-red hover:bg-brand-red-dark text-white rounded-full py-6 text-lg shadow-lg shadow-brand-red/20">
+                            Download App
+                        </Button>
+                    </Link>
+                </nav>
+            </div>
         </header>
     );
 }

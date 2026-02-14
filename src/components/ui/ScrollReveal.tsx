@@ -136,7 +136,7 @@ export function StaggerChildren({
                 return (
                     <div
                         key={i}
-                        className={cn("scroll-reveal", variant, isVisible && "is-visible", gridClasses)}
+                        className={cn("scroll-reveal h-full", variant, isVisible && "is-visible", gridClasses)}
                         style={{
                             transitionDelay: `${i * staggerDelay}ms`,
                             transitionDuration: `${duration}ms`,

@@ -13,7 +13,7 @@ interface DoctorCardProps {
 export function DoctorCard({ doctor }: DoctorCardProps) {
     return (
         <Card className="overflow-hidden hover:shadow-lg transition-shadow border-muted/40">
-            <div className="relative h-48 w-full bg-muted/20">
+            <div className="relative h-72 w-full bg-muted/20">
                 {/* In production, use a real image. For now, a placeholder color block or generic icon */}
                 <div className="absolute inset-0 flex items-center justify-center text-muted-foreground bg-muted/10">
                     {doctor.image && doctor.image.startsWith("http") ? (
@@ -30,7 +30,7 @@ export function DoctorCard({ doctor }: DoctorCardProps) {
                     </Badge>
                 )}
             </div>
-            <CardHeader className="p-4 pb-2">
+            <CardHeader className="p-6 pb-2">
                 <div className="flex justify-between items-start">
                     <div>
                         <h3 className="font-bold text-lg line-clamp-1">{doctor.name}</h3>
@@ -44,7 +44,7 @@ export function DoctorCard({ doctor }: DoctorCardProps) {
                     </div>
                 </div>
             </CardHeader>
-            <CardContent className="p-4 pt-2">
+            <CardContent className="p-6 pt-2">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
                     <MapPin className="w-4 h-4 text-primary" />
                     {doctor.location}
@@ -58,7 +58,7 @@ export function DoctorCard({ doctor }: DoctorCardProps) {
                     </Badge>
                 </div>
             </CardContent>
-            <CardFooter className="p-4 pt-0">
+            <CardFooter className="p-6 pt-0">
                 <Button className="w-full bg-primary hover:bg-primary/90">Book Appointment</Button>
             </CardFooter>
         </Card>

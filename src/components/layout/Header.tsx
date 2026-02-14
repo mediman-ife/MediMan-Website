@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils';
 
 const navigation = [
   { name: 'Home', href: '/' },
-  { name: 'Doctor', href: 'https://mediman.life/doctor/' },
+  { name: 'Doctor', href: '/doctor' },
   { name: 'Available Doctors', href: '/doctors' },
   { name: 'FAQs', href: '/faq' },
   { name: 'Contact', href: '/contact' },

@@ -29,19 +29,32 @@ interface ScrollRevealProps {
   className?: string;
   once?: boolean;
   threshold?: number;
+  direction?: 'left' | 'right' | 'up' | 'down'; // Add direction prop
 }
 
 export function ScrollReveal({
   children,
-  variant = 'fade-up',
+  variant,
   delay = 0,
   duration = 700,
   className,
   once = true,
   threshold = 0.15,
+  direction, // Destructure direction
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+
+  // Map direction to variant if direction is provided
+  const effectiveVariant =
+    variant ||
+    (direction === 'left'
+      ? 'fade-right'
+      : direction === 'right'
+        ? 'fade-left'
+        : direction === 'down'
+          ? 'fade-down'
+          : 'fade-up');
 
   useEffect(() => {
     const element = ref.current;
@@ -66,7 +79,7 @@ export function ScrollReveal({
   return (
     <div
       ref={ref}
-      className={cn('scroll-reveal', variant, isVisible && 'is-visible', className)}
+      className={cn('scroll-reveal', effectiveVariant, isVisible && 'is-visible', className)}
       style={{
         transitionDelay: `${delay}ms`,
         transitionDuration: `${duration}ms`,

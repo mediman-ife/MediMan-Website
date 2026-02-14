@@ -48,7 +48,7 @@ export function DoctorHero() {
                                     <img
                                         src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                                         alt="Download on the App Store"
-                                        className="w-[180px] sm:w-auto sm:h-12"
+                                        className="w-[200px] sm:w-auto sm:h-12"
                                     />
                                 </Link>
                                 <Link
@@ -58,7 +58,7 @@ export function DoctorHero() {
                                     <img
                                         src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
                                         alt="Get it on Google Play"
-                                        className="w-[180px] sm:w-auto sm:h-12"
+                                        className="w-[200px] sm:w-auto sm:h-12"
                                     />
                                 </Link>
                             </div>

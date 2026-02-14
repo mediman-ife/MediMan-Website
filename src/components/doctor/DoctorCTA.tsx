@@ -11,7 +11,7 @@ export function DoctorCTA() {
 
       <div className="container-width px-4 md:px-6 relative z-10">
         <ScrollReveal variant="scale-in">
-          <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-[2.5rem] p-8 md:p-16 lg:px-20 lg:py-24 text-center text-white relative overflow-hidden shadow-2xl shadow-slate-900/20 ring-1 ring-white/10 isolate max-w-5xl mx-auto">
+          <div className="bg-gradient-to-br from-brand-purple via-[#7e22ce] to-brand-purple-dark rounded-[2rem] p-8 md:p-12 text-center text-white relative overflow-hidden shadow-2xl shadow-brand-purple/20 ring-1 ring-white/10 isolate max-w-5xl mx-auto">
             {/* Decor */}
             <div className="absolute -top-40 -right-40 w-[30rem] h-[30rem] bg-brand-purple/20 rounded-full blur-[100px] z-0 pointer-events-none"></div>
             <div className="absolute -bottom-40 -left-40 w-[30rem] h-[30rem] bg-brand-blue/20 rounded-full blur-[100px] z-0 pointer-events-none"></div>
@@ -30,7 +30,7 @@ export function DoctorCTA() {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row justify-center gap-6 pt-6">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6">
                 <a
                   href="https://play.google.com/store/apps/details?id=com.mediman.doctor"
                   target="_blank"

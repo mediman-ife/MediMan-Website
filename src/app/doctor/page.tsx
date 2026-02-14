@@ -1,5 +1,6 @@
 import { DoctorHero } from '@/components/doctor/DoctorHero';
 import { DoctorFeatures } from '@/components/doctor/DoctorFeatures';
+import { DoctorAppShowcase } from '@/components/doctor/DoctorAppShowcase';
 import { DoctorHowItWorks } from '@/components/doctor/DoctorHowItWorks';
 import { DoctorFAQ } from '@/components/doctor/DoctorFAQ';
 import { DoctorCTA } from '@/components/doctor/DoctorCTA';
@@ -17,6 +18,7 @@ export default function DoctorPage() {
       <main className="flex-1">
         <DoctorHero />
         <DoctorFeatures />
+        <DoctorAppShowcase />
         <DoctorHowItWorks />
         <DoctorFAQ />
         <DoctorCTA />

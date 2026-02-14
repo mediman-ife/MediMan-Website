@@ -29,9 +29,11 @@ const features = [
 
 export function DoctorFeatures() {
   return (
-    <section className="relative w-full py-20 md:py-32 bg-white overflow-hidden">
+    <section className="relative w-full py-16 md:py-24">
       {/* Background Decor - Consistent with Home Page */}
-      <div className="absolute top-0 left-0 w-full h-full bg-white -z-20"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-slate-50/50 -z-20"></div>
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-purple-light/40 rounded-full blur-[120px] -z-10 opacity-70 pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-blue-light/40 rounded-full blur-[100px] -z-10 opacity-60 pointer-events-none"></div>
       {/* Subtle divider if needed, or rely on padding */}
 
       <div className="container-width px-4 md:px-6">
@@ -51,12 +53,12 @@ export function DoctorFeatures() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group relative h-full flex flex-col bg-white rounded-3xl p-8 border border-slate-200 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:shadow-brand-purple/10 hover:-translate-y-1 transition-all duration-300"
+              className="group relative h-full flex flex-col items-center md:items-start text-center md:text-left bg-white rounded-3xl p-8 border border-slate-200 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:shadow-brand-purple/10 hover:-translate-y-1 transition-all duration-300 mb-2"
             >
               <div
-                className={`relative z-10 p-4 rounded-2xl w-16 h-16 flex items-center justify-center ${feature.color} mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300 ring-1 ring-black/5`}
+                className={`relative z-10 p-3 rounded-xl w-12 h-12 flex items-center justify-center ${feature.color} mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300 ring-1 ring-black/5 mx-auto md:mx-0`}
               >
-                <feature.icon className="w-8 h-8" />
+                <feature.icon className="w-6 h-6" />
               </div>
 
               <h3 className="relative z-10 text-xl font-bold text-slate-900 mb-3 group-hover:text-brand-purple transition-colors">

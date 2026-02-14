@@ -102,7 +102,13 @@ const faqs = [
 
 export function DoctorFAQ() {
   return (
-    <section className="w-full py-16 md:py-24 lg:py-32 bg-white">
+    <section className="w-full pt-16 md:pt-24 pb-32 md:pb-56 relative overflow-hidden">
+      {/* Background Base */}
+      <div className="absolute inset-0 bg-white -z-20"></div>
+      {/* Ambient Backgrounds */}
+      <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-brand-purple-light/30 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+      <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-brand-blue-light/30 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+
       <div className="container-width px-4 md:px-6 relative z-10">
         <ScrollReveal>
           <div className="text-center space-y-4 mb-16 px-4">
@@ -119,13 +125,13 @@ export function DoctorFAQ() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.2}>
-          <div className="max-w-3xl mx-auto px-4">
-            <Accordion type="single" collapsible className="w-full space-y-4">
+          <div className="max-w-3xl mx-auto px-4 pb-12">
+            <Accordion type="single" collapsible className="w-full space-y-4 p-2">
               {faqs.map((faq, index) => (
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="bg-white border border-slate-200 rounded-2xl px-6 data-[state=open]:border-brand-purple/20 data-[state=open]:shadow-md transition-all duration-300"
+                  className="bg-white border border-slate-200 last:border-b rounded-2xl px-6 data-[state=open]:border-brand-purple/20 data-[state=open]:shadow-md transition-all duration-300"
                 >
                   <AccordionTrigger className="text-left font-semibold text-lg text-slate-900 py-6 hover:text-brand-purple hover:no-underline [&[data-state=open]]:text-brand-purple">
                     {faq.question}

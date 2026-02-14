@@ -27,7 +27,7 @@ export function DoctorHowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="w-full py-16 md:py-24 lg:py-32 bg-slate-50/50 relative overflow-hidden"
+      className="w-full py-16 md:py-24 bg-slate-50/50 relative overflow-hidden pb-32"
     >
       {/* Ambient Backgrounds */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-blue-light/50 rounded-full blur-[120px] -z-10 mix-blend-multiply pointer-events-none"></div>
@@ -53,7 +53,7 @@ export function DoctorHowItWorks() {
                 {steps.map((step, index) => (
                   <div
                     key={index}
-                    className="flex gap-6 p-6 rounded-3xl border border-transparent bg-white/50 hover:bg-white hover:border-slate-200 hover:shadow-xl transition-all duration-300 group items-start"
+                    className="flex gap-6 p-8 rounded-3xl bg-white border border-slate-200 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:shadow-brand-purple/10 hover:-translate-y-1 transition-all duration-300 group items-start relative overflow-hidden"
                   >
                     <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-brand-purple text-white flex items-center justify-center font-bold text-lg shadow-md lg:shadow-brand-purple/30 group-hover:scale-110 transition-transform mt-1">
                       {step.number}

@@ -5,7 +5,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://mediman.life';
 
   // Static routes
-  const routes = ['', '/about', '/doctors', '/contact', '/faq'].map((route) => ({
+  const routes = ['', '/about', '/doctors', '/contact', '/faq', '/terms-and-conditions'].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,

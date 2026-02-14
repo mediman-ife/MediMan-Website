@@ -170,10 +170,10 @@ export function Footer() {
             </a>
           </div>
           <nav className="flex flex-wrap justify-center gap-6 sm:gap-8">
-            <Link href="/terms" className="hover:text-brand-blue transition-colors">
+            <Link href="/terms-and-conditions" className="hover:text-brand-blue transition-colors">
               Terms & Conditions
             </Link>
-            <Link href="/privacy" className="hover:text-brand-blue transition-colors">
+            <Link href="/privacy-policy" className="hover:text-brand-blue transition-colors">
               Privacy Policy
             </Link>
           </nav>

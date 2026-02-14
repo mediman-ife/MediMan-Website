@@ -13,8 +13,9 @@ export default function Home() {
         <section className="relative w-full py-12 md:py-20 lg:py-24 overflow-hidden">
           {/* Background Decor */}
           <div className="absolute top-0 left-0 w-full h-full bg-slate-50 -z-20"></div>
-          <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-brand-light rounded-full blur-3xl opacity-50 -z-10 animate-in fade-in duration-1000"></div>
-          <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-blue-50 rounded-full blur-3xl opacity-50 -z-10"></div>
+          <div className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] bg-brand-light rounded-full blur-[120px] opacity-70 -z-10 animate-in fade-in duration-1000"></div>
+          <div className="absolute bottom-[-10%] left-[-20%] w-[800px] h-[800px] bg-brand-blue/20 rounded-full blur-[140px] opacity-60 -z-10 animate-pulse duration-[5000ms]"></div>
+          <div className="absolute top-[20%] left-[20%] w-[400px] h-[400px] bg-sky-200/30 rounded-full blur-[100px] -z-20"></div>
 
           <div className="container-width relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
@@ -86,7 +87,14 @@ export default function Home() {
         </section>
 
         {/* Features Grid (Bento Style) */}
-        <section className="py-16 bg-white">
+        <section className="py-16 relative overflow-hidden">
+          {/* Background Layer */}
+          <div className="absolute inset-0 bg-white -z-20"></div>
+          {/* Ambient Background */}
+          {/* Ambient Background */}
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-light/60 rounded-full blur-[140px] -z-10 mix-blend-multiply opacity-80 pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-100/60 rounded-full blur-[120px] -z-10 mix-blend-multiply opacity-70 pointer-events-none"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-white/40 rounded-full blur-[80px] -z-20 pointer-events-none"></div>
           <div className="container-width">
             <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Healthcare Reimagined</h2>
@@ -150,7 +158,12 @@ export default function Home() {
         </section>
 
         {/* How it Works (Timeline) */}
-        <section id="how-it-works" className="py-16 bg-slate-50">
+        <section id="how-it-works" className="py-16 relative overflow-hidden">
+          {/* Background Layer */}
+          <div className="absolute inset-0 bg-slate-50 -z-20"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-white rounded-full blur-[120px] opacity-80 -z-10 pointer-events-none"></div>
+          <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-brand-light/50 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-blue/5 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
           <div className="container-width">
             <div className="text-center mb-20">
               <span className="text-brand-blue font-bold tracking-wider text-sm uppercase bg-blue-50 px-3 py-1 rounded-full">Simple Process</span>
@@ -188,7 +201,11 @@ export default function Home() {
         </section>
 
         {/* Care Without Borders (New Section) */}
-        <section className="py-16 bg-white">
+        <section className="py-16 relative overflow-hidden">
+          {/* Background Layer */}
+          <div className="absolute inset-0 bg-white -z-20"></div>
+          <div className="absolute top-40 -left-20 w-[600px] h-[600px] bg-brand-light/80 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-100/60 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
           <div className="container-width">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
@@ -246,7 +263,10 @@ export default function Home() {
         </section>
 
         {/* Testimonials */}
-        <section className="py-16 bg-slate-50 overflow-hidden">
+        <section className="py-16 overflow-hidden relative">
+          <div className="absolute top-0 w-full h-full bg-slate-50 -z-20"></div>
+          <div className="absolute -top-20 right-0 w-[700px] h-[700px] bg-brand-light/60 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+          <div className="absolute bottom-0 left-10 w-[400px] h-[400px] bg-brand-blue/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
           <div className="container-width">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="relative">
@@ -289,7 +309,8 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20">
+        <section className="py-20 relative">
+          <div className="absolute inset-0 bg-white -z-20"></div>
           <div className="container-width">
             <div className="bg-gradient-to-br from-brand-blue via-[#103E99] to-[#0A2660] rounded-[3rem] p-8 md:p-16 text-center md:text-left text-white relative overflow-hidden shadow-2xl ring-1 ring-white/10 isolate">
               {/* Background Patterns & Glows */}
@@ -328,7 +349,7 @@ export default function Home() {
                       alt="MediMan App Interface"
                       width={400}
                       height={800}
-                      className="w-full max-w-[400px] md:max-w-[600px] mx-auto drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] rotate-[-6deg] hover:rotate-0 transition-all duration-700 ease-out origin-bottom transform-gpu hover:scale-105"
+                      className="w-full max-w-[450px] md:max-w-[800px] mx-auto drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] rotate-[-6deg] hover:rotate-0 transition-all duration-700 ease-out origin-bottom transform-gpu hover:scale-105"
                     />
                   </div>
                 </div>

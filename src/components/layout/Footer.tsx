@@ -2,112 +2,117 @@
 import Link from "next/link";
 import { Facebook, Instagram, Linkedin, Youtube, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/ui/Logo";
 
 export function Footer() {
     return (
-        <footer className="w-full bg-white border-t">
+        <footer className="w-full bg-slate-900 border-t border-slate-800 font-sans">
             {/* Main Footer Content */}
-            <div className="container-width py-12 md:py-16">
-                <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-                    {/* Column 1: Brand & Description */}
-                    <div className="space-y-6">
-                        <Link href="/" className="inline-block">
-                            <img src="/images/logo.svg" alt="MediMan" className="h-10 w-auto" />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+
+                    {/* Column 1: Brand & Description (Spans 2 columns on lg) */}
+                    <div className="lg:col-span-2 space-y-8">
+                        <Link href="/" className="inline-block transition-opacity hover:opacity-80">
+                            <Logo className="h-14 w-auto text-white" />
                         </Link>
-                        <p className="text-sm text-gray-600 leading-relaxed">
-                            MediMan is a secure telehealth app to book trusted doctors, consult by video or in – clinic, get e-prescriptions, and manage family records – all in one place.
+                        <p className="text-slate-400 leading-relaxed max-w-sm">
+                            MediMan is a secure telehealth app to book trusted doctors, video consult, get e-prescriptions, and manage family records – all in one place.
                         </p>
-                        <div className="flex space-x-4">
-                            <Link href="https://www.facebook.com/mediman.life" target="_blank" className="bg-[#1751C2] p-2 rounded text-white hover:bg-[#1751C2]/90 transition-colors">
-                                <Facebook className="h-4 w-4" />
-                            </Link>
-                            <Link href="https://www.instagram.com/mediman.life" target="_blank" className="bg-[#1751C2] p-2 rounded text-white hover:bg-[#1751C2]/90 transition-colors">
-                                <Instagram className="h-4 w-4" />
-                            </Link>
-                            <Link href="https://www.linkedin.com/company/mediman-life" target="_blank" className="bg-[#1751C2] p-2 rounded text-white hover:bg-[#1751C2]/90 transition-colors">
-                                <Linkedin className="h-4 w-4" />
-                            </Link>
-                            <Link href="https://www.youtube.com/@medimanlife" target="_blank" className="bg-[#1751C2] p-2 rounded text-white hover:bg-[#1751C2]/90 transition-colors">
-                                <Youtube className="h-4 w-4" />
-                            </Link>
+
+                        {/* Social Links */}
+                        <div className="flex space-x-3">
+                            <SocialLink href="https://www.facebook.com/mediman.life" icon={<Facebook className="h-5 w-5" />} />
+                            <SocialLink href="https://www.instagram.com/mediman.life" icon={<Instagram className="h-5 w-5" />} />
+                            <SocialLink href="https://www.linkedin.com/company/mediman-life" icon={<Linkedin className="h-5 w-5" />} />
+                            <SocialLink href="https://www.youtube.com/@medimanlife" icon={<Youtube className="h-5 w-5" />} />
+                        </div>
+
+                        {/* Trust Badges */}
+                        <div className="flex flex-wrap gap-4 pt-2">
+                            <a href="https://www.saashub.com/mediman?utm_source=badge&utm_campaign=badge&utm_content=mediman&badge_variant=color&badge_kind=approved" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity grayscale hover:grayscale-0 contrast-0 brightness-200 hover:contrast-100 hover:brightness-100">
+                                <img src="https://cdn-b.saashub.com/img/badges/approved-color.png?v=1" alt="MediMan.life badge" className="h-8 w-auto" />
+                            </a>
                         </div>
                     </div>
 
                     {/* Column 2: Quick Links */}
                     <div className="space-y-6">
-                        <h3 className="text-[#1751C2] font-bold text-lg">Quick Links</h3>
-                        <nav className="flex flex-col space-y-3 text-sm text-gray-600">
-                            <Link href="/faq" className="hover:text-[#1751C2] transition-colors">FAQ</Link>
-                            <Link href="/contact" className="hover:text-[#1751C2] transition-colors">Contact Us</Link>
-                            <Link href="/blogs" className="hover:text-[#1751C2] transition-colors">Blogs</Link>
+                        <h3 className="text-white font-bold text-lg">Quick Links</h3>
+                        <nav className="flex flex-col space-y-3 text-slate-400">
+                            <FooterLink href="/faq">FAQ</FooterLink>
+                            <FooterLink href="/contact">Contact Us</FooterLink>
+                            <FooterLink href="/blogs">Blogs</FooterLink>
+                            <FooterLink href="/doctors">Find a Doctor</FooterLink>
                         </nav>
-
-                        {/* Badges */}
-                        {/* Badges */}
-                        <div className="pt-4 flex flex-col gap-4">
-                            {/* SaaSHub Badge */}
-                            <a href="https://www.saashub.com/mediman?utm_source=badge&utm_campaign=badge&utm_content=mediman&badge_variant=color&badge_kind=approved" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                                <img src="https://cdn-b.saashub.com/img/badges/approved-color.png?v=1" alt="MediMan.life badge" className="max-w-[150px]" />
-                            </a>
-
-                            {/* Product Hunt Badge */}
-                            <a href="https://www.producthunt.com/products/mediman?utm_source=badge-follow&utm_medium=badge&utm_source=badge-mediman" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                                <img src="https://api.producthunt.com/widgets/embed-image/v1/follow.svg?product_id=1150139&theme=light" alt="MediMan - Healthcare Anytime Anywhere | Product Hunt" width="250" height="54" className="w-[250px] h-[54px]" />
-                            </a>
-                        </div>
                     </div>
 
                     {/* Column 3: Support */}
                     <div className="space-y-6">
-                        <h3 className="text-[#1751C2] font-bold text-lg">Support</h3>
-                        <div className="flex flex-col space-y-4 text-sm text-gray-600">
-                            <div className="flex items-center gap-3">
-                                <Phone className="h-4 w-4 text-gray-400" />
-                                <a href="tel:+94114668668" className="hover:text-[#1751C2]">+94 11 466 8668</a>
+                        <h3 className="text-white font-bold text-lg">Support</h3>
+                        <div className="flex flex-col space-y-4 text-slate-400">
+                            <div className="flex items-start gap-3 group">
+                                <Phone className="h-5 w-5 text-brand-blue flex-shrink-0 mt-0.5 group-hover:text-blue-400 transition-colors" />
+                                <a href="tel:+94114668668" className="hover:text-brand-blue transition-colors font-medium">+94 11 466 8668</a>
                             </div>
-                            <div className="flex items-center gap-3">
-                                <Mail className="h-4 w-4 text-gray-400" />
-                                <a href="mailto:support@mediman.life" className="hover:text-[#1751C2]">support@mediman.life</a>
+                            <div className="flex items-start gap-3 group">
+                                <Mail className="h-5 w-5 text-brand-blue flex-shrink-0 mt-0.5 group-hover:text-blue-400 transition-colors" />
+                                <a href="mailto:support@mediman.life" className="hover:text-brand-blue transition-colors break-all">support@mediman.life</a>
                             </div>
                         </div>
                     </div>
 
-                    {/* Column 4: Download Doctor App */}
+                    {/* Column 4: Download App */}
                     <div className="space-y-6">
-                        <h3 className="text-gray-900 font-bold text-lg">Download MediMan Doctor App</h3>
-                        <p className="text-sm text-gray-600">
-                            Grow your practice with MediMan Doctor - all from one secure app.
+                        <h3 className="text-white font-bold text-lg">Get the App</h3>
+                        <p className="text-sm text-slate-400 leading-relaxed">
+                            For licensed practitioners. Manage your practice on the go.
                         </p>
 
                         <div className="flex flex-col gap-3">
-                            <Link href="https://play.google.com/store/apps/details?id=com.mediman.doctor" target="_blank">
-                                <img src="/images/google-play.png" alt="Get it on Google Play" className="h-[40px] w-auto bg-black rounded-md border border-gray-200" />
-                            </Link>
-                            <Link href="https://apps.apple.com/us/app/mediman-doctor/id6445903387" target="_blank">
-                                <img src="/images/app-store.png" alt="Download on the App Store" className="h-[40px] w-auto bg-black rounded-md border border-gray-200" />
-                            </Link>
+                            <a href="https://play.google.com/store/apps/details?id=com.mediman.doctor" target="_blank" className="hover:opacity-90 transition-opacity w-fit bg-white/5 p-1 rounded-lg border border-white/10 hover:bg-white/10">
+                                <img src="/images/google-play.png" alt="Google Play" className="h-10 w-auto" />
+                            </a>
+                            <a href="https://apps.apple.com/us/app/mediman-doctor/id6445903387" target="_blank" className="hover:opacity-90 transition-opacity w-fit bg-white/5 p-1 rounded-lg border border-white/10 hover:bg-white/10">
+                                <img src="/images/app-store.png" alt="App Store" className="h-10 w-auto" />
+                            </a>
                         </div>
-
-                        <p className="text-xs text-gray-500 italic">
-                            For licensed practitioners only. Not for emergencies.
-                        </p>
                     </div>
                 </div>
             </div>
 
             {/* Bottom Bar */}
-            <div className="bg-[#1751C2] text-white py-6">
-                <div className="container-width flex flex-col md:flex-row justify-between items-center gap-4 text-xs opacity-90">
+            <div className="bg-slate-950 border-t border-slate-800 py-8">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
                     <p>
-                        © 2026 MediMan Life (PVT) Ltd. All rights reserved.
+                        © {new Date().getFullYear()} MediMan Life (PVT) Ltd. All rights reserved.
                     </p>
-                    <nav className="flex gap-6">
-                        <Link href="/terms" className="hover:text-white/80 underline-offset-4 hover:underline">Terms & Conditions</Link>
-                        <Link href="/privacy" className="hover:text-white/80 underline-offset-4 hover:underline">Privacy Policy</Link>
-                        <Link href="#" className="hover:text-white/80 underline-offset-4 hover:underline">Unsubscribe</Link>
+                    <nav className="flex flex-wrap justify-center gap-6 sm:gap-8">
+                        <Link href="/terms" className="hover:text-brand-blue transition-colors">Terms & Conditions</Link>
+                        <Link href="/privacy" className="hover:text-brand-blue transition-colors">Privacy Policy</Link>
                     </nav>
                 </div>
             </div>
         </footer>
+    );
+}
+
+function SocialLink({ href, icon }: { href: string; icon: React.ReactNode }) {
+    return (
+        <Link
+            href={href}
+            target="_blank"
+            className="flex items-center justify-center w-10 h-10 rounded-full bg-slate-800 text-slate-400 hover:bg-brand-blue hover:text-white transition-all duration-300"
+        >
+            {icon}
+        </Link>
+    );
+}
+
+function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
+    return (
+        <Link href={href} className="hover:text-brand-blue hover:translate-x-1 transition-all duration-200 inline-block w-fit">
+            {children}
+        </Link>
     );
 }

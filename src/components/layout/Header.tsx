@@ -4,13 +4,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 const navigation = [
     { name: "Home", href: "/" },
-    { name: "Doctor", href: "https://mediman.life/doctor/" }, // Linking to live site's doctor page or a new internal one
-    { name: "Available Doctors", href: "https://doctors.mediman.life/" }, // Linking to subdomain as per live site, or keep internal /doctors? User said "Available Doctors" is a link. I will use internal /doctors for now if we built it, or external if that is the goal. I'll stick to internal /doctors for "Available Doctors" as we built it. Wait, live site links "Available Doctors" to doctors.mediman.life. I will use internal /doctors since I built it.
+    { name: "Doctor", href: "https://mediman.life/doctor/" },
+    { name: "Available Doctors", href: "/doctors" },
     { name: "FAQs", href: "/faq" },
     { name: "Contact", href: "/contact" },
 ];
@@ -18,38 +18,58 @@ const navigation = [
 export function Header() {
     const pathname = usePathname();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 10);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div className="container flex h-16 items-center justify-between">
-                <div className="flex items-center gap-8">
+        <header
+            className={cn(
+                "sticky top-0 z-50 w-full transition-all duration-300",
+                scrolled
+                    ? "bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm h-20"
+                    : "bg-transparent border-transparent h-24" // Taller initial state, transparent
+            )}
+        >
+            <div className="container-width h-full flex items-center justify-between">
+                <div className="flex items-center gap-12">
                     <Link href="/" className="flex items-center space-x-2">
                         <img
                             src="/images/logo.svg"
                             alt="MediMan Logo"
-                            className="h-8 w-auto"
+                            className="h-10 w-auto transition-all duration-300" // Slightly larger logo
                         />
                     </Link>
-                    <nav className="hidden lg:flex items-center gap-6">
+                    <nav className="hidden lg:flex items-center gap-8">
                         {navigation.map((item) => (
                             <Link
                                 key={item.href}
                                 href={item.href}
                                 className={cn(
-                                    "text-sm font-medium transition-colors hover:text-primary",
+                                    "text-sm font-medium transition-colors hover:text-primary relative group",
                                     pathname === item.href
-                                        ? "text-foreground"
-                                        : "text-muted-foreground"
+                                        ? "text-brand-blue"
+                                        : "text-slate-600"
                                 )}
                             >
                                 {item.name}
+                                <span className={cn(
+                                    "absolute -bottom-1 left-0 w-full h-0.5 bg-brand-blue scale-x-0 transition-transform origin-left group-hover:scale-x-100",
+                                    pathname === item.href && "scale-x-100"
+                                )} />
                             </Link>
                         ))}
                     </nav>
                 </div>
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-6">
                     <Link href="https://play.google.com/store/apps/details?id=com.mediman.life" className="hidden sm:block">
-                        <Button size="sm" className="bg-primary hover:bg-primary/90">
+                        <Button className="bg-brand-blue hover:bg-brand-dark text-white rounded-full px-6 shadow-lg shadow-brand-blue/20 transition-all hover:shadow-brand-blue/40">
                             Download App
                         </Button>
                     </Link>
@@ -60,29 +80,32 @@ export function Header() {
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     >
                         {mobileMenuOpen ? (
-                            <X className="h-5 w-5" />
+                            <X className="h-6 w-6 text-slate-800" />
                         ) : (
-                            <Menu className="h-5 w-5" />
+                            <Menu className="h-6 w-6 text-slate-800" />
                         )}
                     </Button>
                 </div>
             </div>
-            {/* Mobile Menu */}
+            {/* Mobile Menu - Glass Overlay */}
             {mobileMenuOpen && (
-                <div className="lg:hidden border-t p-4 space-y-4 bg-background">
-                    <nav className="flex flex-col gap-4">
+                <div className="fixed inset-0 top-20 z-40 bg-white/95 backdrop-blur-xl border-t border-gray-100 p-6 lg:hidden animate-in slide-in-from-top-5">
+                    <nav className="flex flex-col gap-6">
                         {navigation.map((item) => (
                             <Link
                                 key={item.href}
                                 href={item.href}
-                                className="text-sm font-medium hover:text-primary"
+                                className="text-lg font-medium text-slate-800 hover:text-brand-blue transition-colors"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 {item.name}
                             </Link>
                         ))}
+                        <div className="h-px bg-gray-100 my-2" />
                         <Link href="https://play.google.com/store/apps/details?id=com.mediman.life">
-                            <Button className="w-full bg-primary">Download App</Button>
+                            <Button className="w-full bg-brand-blue hover:bg-brand-dark text-white rounded-full py-6 text-lg">
+                                Download App
+                            </Button>
                         </Link>
                     </nav>
                 </div>

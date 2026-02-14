@@ -1,12 +1,12 @@
 
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google"; // Using Outfit for a modern, friendly medical look
+import { DM_Sans } from "next/font/google"; // Using DM Sans for a premium, clean look
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
-const outfit = Outfit({ subsets: ["latin"], variable: "--font-sans" });
+const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-sans", weight: ["400", "500", "700"] });
 
 export const metadata: Metadata = {
   title: "MediMan - Healthcare. Anytime. Anywhere.",
@@ -26,7 +26,7 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased flex flex-col",
-          outfit.variable
+          dmSans.variable
         )}
       >
         <Header />

@@ -7,7 +7,7 @@ export function Footer() {
     return (
         <footer className="w-full bg-white border-t">
             {/* Main Footer Content */}
-            <div className="container py-12 md:py-16">
+            <div className="container-width py-12 md:py-16">
                 <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
                     {/* Column 1: Brand & Description */}
                     <div className="space-y-6">
@@ -43,23 +43,17 @@ export function Footer() {
                         </nav>
 
                         {/* Badges */}
-                        <div className="pt-4 space-y-3">
-                            {/* SaaSHub Badge Placeholder/Text */}
-                            <div className="border rounded-md px-3 py-1 inline-flex items-center gap-2 bg-white shadow-sm">
-                                <span className="text-blue-600 font-bold">Approved on</span>
-                                <span className="font-bold text-gray-800">SaaSHub</span>
-                            </div>
+                        {/* Badges */}
+                        <div className="pt-4 flex flex-col gap-4">
+                            {/* SaaSHub Badge */}
+                            <a href="https://www.saashub.com/mediman?utm_source=badge&utm_campaign=badge&utm_content=mediman&badge_variant=color&badge_kind=approved" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+                                <img src="https://cdn-b.saashub.com/img/badges/approved-color.png?v=1" alt="MediMan.life badge" className="max-w-[150px]" />
+                            </a>
 
-                            {/* Product Hunt Embed/Badge */}
-                            <div className="border border-[#ea532a] rounded-md p-1 inline-block bg-white">
-                                <div className="flex items-center gap-2 px-2">
-                                    <div className="bg-[#ea532a] text-white rounded-full p-1 h-6 w-6 flex items-center justify-center font-bold text-xs">P</div>
-                                    <div className="flex flex-col">
-                                        <span className="text-[10px] text-[#ea532a] uppercase leading-none">Featured on</span>
-                                        <span className="text-sm font-bold text-[#ea532a] leading-none">Product Hunt</span>
-                                    </div>
-                                </div>
-                            </div>
+                            {/* Product Hunt Badge */}
+                            <a href="https://www.producthunt.com/products/mediman?utm_source=badge-follow&utm_medium=badge&utm_source=badge-mediman" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+                                <img src="https://api.producthunt.com/widgets/embed-image/v1/follow.svg?product_id=1150139&theme=light" alt="MediMan - Healthcare Anytime Anywhere | Product Hunt" width="250" height="54" className="w-[250px] h-[54px]" />
+                            </a>
                         </div>
                     </div>
 
@@ -103,7 +97,7 @@ export function Footer() {
 
             {/* Bottom Bar */}
             <div className="bg-[#1751C2] text-white py-6">
-                <div className="container px-4 flex flex-col md:flex-row justify-between items-center gap-4 text-xs opacity-90">
+                <div className="container-width flex flex-col md:flex-row justify-between items-center gap-4 text-xs opacity-90">
                     <p>
                         © 2026 MediMan Life (PVT) Ltd. All rights reserved.
                     </p>

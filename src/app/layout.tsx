@@ -8,7 +8,7 @@ import { Footer } from '@/components/layout/Footer';
 const dmSans = DM_Sans({
   subsets: ['latin'],
   variable: '--font-sans',
-  weight: ['400', '500', '700'],
+  weight: ['400', '500', '700', '800', '900'],
 });
 
 export const metadata: Metadata = {

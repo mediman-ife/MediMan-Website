@@ -20,7 +20,7 @@ export default function PrivacyPolicyPage() {
                             Privacy Policy
                         </h1>
                         <p className="text-lg text-slate-500 font-medium">
-                            Last Updated: February 15, 2026 | Effective Date: February 15, 2026 | Version: 2.1
+                            Effective Date: February 15, 2026
                         </p>
                     </div>
                 </ScrollReveal>
@@ -33,32 +33,32 @@ export default function PrivacyPolicyPage() {
               prose-strong:text-slate-900 prose-strong:font-bold
               prose-li:text-slate-600 prose-li:mb-2
               prose-ul:my-6
-              prose-h2:text-2xl prose-h2:mt-20 prose-h2:mb-8 prose-h2:pb-4 prose-h2:border-b prose-h2:border-slate-100 prose-h2:font-extrabold prose-h2:text-black
-              prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-4 prose-h3:text-slate-900 prose-h3:font-bold">
+              prose-h2:text-2xl prose-h2:mt-20 prose-h2:mb-8 prose-h2:pb-4 prose-h2:border-b prose-h2:border-slate-100 prose-h2:!font-extrabold prose-h2:text-black
+              prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-4 prose-h3:text-slate-900 prose-h3:!font-bold">
 
-                        <h2 id="introduction">1. Introduction</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="introduction">1. Introduction</h2>
                         <p>
                             This Privacy Policy governs the MediMan Patient Application and the MediMan Doctor Application (together, the “Services”), available on Web, Google Play Store and IOS App Store. We operate with privacy-by-design and security-by-default principles to deliver compliant, reliable telehealth services at scale.
                         </p>
 
-                        <h2 id="platform-role">2. Our Platform Role (Intermediary)</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="platform-role">2. Our Platform Role (Intermediary)</h2>
                         <p>
                             MediMan is an intermediary technology platform that connects patients with independent doctors through our app. We do not practice medicine or make clinical decisions. Doctors provide care directly and may manage clinic bookings within the MediMan Doctor Application. Clinical responsibilities and decisions rest with the doctor and patient. MediMan is not an emergency service. In an emergency, please contact your nearest hospital, clinic, or doctor.
                         </p>
 
-                        <h2 id="data-controller">3. Data Controller, Representative & Contacts</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="data-controller">3. Data Controller, Representative & Contacts</h2>
                         <ul>
                             <li><strong>Controller:</strong> Mediman Life (PVT) Ltd., #95 KKS Road, Jaffna, Sri Lanka. (Company Registration PV 00319083)</li>
                             <li><strong>Data Protection Officer (DPO) & EU/UK Representative:</strong> <a href="mailto:itsupport@mediman.life">itsupport@mediman.life</a> - +94 70 167 7488</li>
                             <li><strong>Support & Data Requests:</strong> <a href="mailto:itsupport@mediman.life">itsupport@mediman.life</a></li>
                         </ul>
 
-                        <h2 id="scope">4. Scope & Audience</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="scope">4. Scope & Audience</h2>
                         <p>
                             This Policy covers how we handle data across our Services, including identity and account management, appointment scheduling, secure video consultations, notifications, file uploads, analytics, payments, and general platform operations on both apps. It applies to patients using the MediMan Patient Application and to authorized doctors and licensed healthcare professionals using the MediMan Doctor Application.
                         </p>
 
-                        <h2 id="information-collection">5. Information We Collect</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="information-collection">5. Information We Collect</h2>
                         <p>We collect various types of information to provide and improve our Services, including:</p>
                         <ul>
                             <li><strong>Patient Identity:</strong> Personal details such as name, date of birth, gender, nationality, email, phone number, and profile photo.</li>
@@ -68,7 +68,7 @@ export default function PrivacyPolicyPage() {
                             <li><strong>Financial & Billing:</strong> Payment method tokens and transaction details, insurance information (if applicable), and records of payouts to providers. We do not store raw payment card numbers (sensitive payment data is handled by secure, compliant payment processors).</li>
                         </ul>
 
-                        <h2 id="roles">6. Controller / Processor Roles</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="roles">6. Controller / Processor Roles</h2>
                         <p>Our role under data protection law can vary depending on the data and context:</p>
                         <ul>
                             <li><strong>MediMan as a Data Processor:</strong> When you engage in a consultation, the clinical data generated (medical records, consultation notes, prescriptions, etc.) is processed by MediMan on behalf of the treating doctor. The doctor is responsible for that clinical data, and we act only as a processor handling it per the doctor’s instructions (aside from necessary security and compliance logging).</li>
@@ -76,7 +76,7 @@ export default function PrivacyPolicyPage() {
                             <li><strong>Doctors as Independent Controllers:</strong> Each doctor using our platform remains an independent controller for the clinical information they generate or use within the app. This means doctors retain responsibility for maintaining their own clinical records, notes, and prescriptions, and for complying with any regulatory requirements related to their practice.</li>
                         </ul>
 
-                        <h2 id="android-permissions">7. Android Permissions</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="android-permissions">7. Android Permissions</h2>
                         <p>
                             We request only the minimum necessary permissions in our Android app. You can manage these permissions in your device settings at any time (though revoking certain permissions may affect app functionality). Below is a summary of the permissions and why we need them:
                         </p>
@@ -92,7 +92,7 @@ export default function PrivacyPolicyPage() {
                             <em>Note:</em> We do not access background location data, external storage (beyond the new media permissions listed), or use Bluetooth features, and we do not request to ignore battery optimizations. If any of these were to be introduced in the future, we would notify you and update this Policy accordingly.
                         </p>
 
-                        <h2 id="ios-privacy">8. iOS Privacy</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="ios-privacy">8. iOS Privacy</h2>
                         <p>
                             Our iOS apps request only essential permissions through system prompts, and we explain the reason for each. The main iOS permissions we use are:
                         </p>
@@ -106,7 +106,7 @@ export default function PrivacyPolicyPage() {
                             We may also utilize notification permissions (to send appointment reminders and alerts) and performance monitoring frameworks (to improve app stability), which will be requested via the standard iOS prompts when needed. All permission requests on iOS are accompanied by a brief explanation in your local language. We do not reduce any privacy protections with custom wording - the text is clear about why the access is needed, and you remain in control of granting or denying each permission.
                         </p>
 
-                        <h2 id="lawful-bases">9. Lawful Bases for Processing</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="lawful-bases">9. Lawful Bases for Processing</h2>
                         <p>Depending on the situation, we rely on different legal grounds to process personal data in compliance with global data protection laws (such as GDPR and related regulations):</p>
                         <ul>
                             <li><strong>Consent:</strong> We will ask for your consent in certain cases - for example, processing your health data for telehealth services (in many jurisdictions health data requires explicit consent), enabling app analytics or crash reporting (where not strictly necessary for service), sending marketing communications (which are opt-in), or sharing information with third parties for care coordination beyond our platform. You have the right to withdraw your consent at any time.</li>
@@ -116,7 +116,7 @@ export default function PrivacyPolicyPage() {
                             <li><strong>Legitimate Interests:</strong> We process data to further our legitimate interests in maintaining and improving our Services, in a way that does not override your rights and freedoms. This can include things like ensuring platform security, preventing fraud and abuse, anonymizing and aggregating data for service improvement and research, and sending important product updates. When we rely on this basis, we carefully consider and balance our interests against your privacy rights.</li>
                         </ul>
 
-                        <h2 id="data-usage">10. How We Use Data</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="data-usage">10. How We Use Data</h2>
                         <p>We use the collected information to provide, maintain, and enhance our Services, as well as to ensure safety and compliance. Key uses include:</p>
                         <ul>
                             <li><strong>Care Delivery:</strong> We use personal and health information to facilitate healthcare services. This includes scheduling appointments and sending reminders, enabling doctors and patients to connect via secure video consultations, maintaining an electronic health record of consultations (notes, prescriptions, treatment plans), issuing e-prescriptions, providing referral letters or medical certificates when needed, and generally supporting the doctor-patient interaction through our platform.</li>
@@ -125,7 +125,7 @@ export default function PrivacyPolicyPage() {
                             <li><strong>Communications:</strong> We use contact information (email, phone number) to communicate with you. This includes sending appointment confirmations and reminders via SMS, email, or push notification, notifying you of important health alerts or service updates, sending newsletters or promotional content if you have opted in to marketing, and informing you of changes to our terms or Privacy Policy. We strive to keep communications relevant and will not spam you; you can opt out of non-essential communications at any time.</li>
                         </ul>
 
-                        <h2 id="data-sharing">11. Data Sharing & Processors (Named Only)</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="data-sharing">11. Data Sharing & Processors (Named Only)</h2>
                         <p>
                             We value your privacy and thus limit data sharing to only what is necessary to deliver our Services. We engage only the third parties listed below to process data on our behalf, under strict agreements that bind them to confidentiality, security standards, and specific purposes. We do not sell or share your personal data with anyone else for their own use. If we ever need to add a new data processor or significantly change data sharing, we will update this Policy and, if required, seek your consent before using them. Our current third-party service providers include:
                         </p>
@@ -143,7 +143,7 @@ export default function PrivacyPolicyPage() {
                             Each of these partners is bound by data protection agreements, meaning they can only use your data for the specific services they provide to us and must protect it according to applicable privacy laws.
                         </p>
 
-                        <h2 id="international-transfers">12. International Data Transfers</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="international-transfers">12. International Data Transfers</h2>
                         <p>
                             MediMan is based in Sri Lanka, but we serve patients and doctors globally. This means your data might be accessed or processed in different countries. Whenever personal data is transferred across national borders, we take steps to ensure it remains protected:
                         </p>
@@ -156,7 +156,7 @@ export default function PrivacyPolicyPage() {
                             By using our Services, you understand that your information may be transferred to and stored on servers in countries other than your own. We will always ensure such transfers comply with privacy laws so that your personal data remains secure.
                         </p>
 
-                        <h2 id="security">13. Security Posture</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="security">13. Security Posture</h2>
                         <p>
                             We are committed to protecting your personal data through strong security practices and measures. Some key aspects of our security program include:
                         </p>
@@ -172,7 +172,7 @@ export default function PrivacyPolicyPage() {
                             While we do our best to protect your data, it’s also important for users to play a part in security. Keep your account credentials confidential and notify us immediately if you suspect any unauthorized access to your account.
                         </p>
 
-                        <h2 id="data-retention">14. Data Retention</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="data-retention">14. Data Retention</h2>
                         <p>
                             We retain personal data only for as long as it is needed for the purposes described in this Policy, or as required by law. Retention periods can vary based on the type of data and applicable regulations:
                         </p>
@@ -189,18 +189,18 @@ export default function PrivacyPolicyPage() {
                             When data is no longer needed, we ensure it is deleted or anonymized in a secure manner. Please note that in some cases we may retain certain information for longer if required by law (e.g., if a legal hold or court order is in place, or an investigation is ongoing).
                         </p>
 
-                        <h2 id="account-deletion">15. Account Deletion & Data Rights</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="account-deletion">15. Account Deletion & Data Rights</h2>
                         <p>
                             You have the right to delete your account and personal data, as well as other rights regarding how your data is used. This section explains how you can exercise those rights:
                         </p>
-                        <h3 id="deletion-process">Account Deletion</h3>
+                        <h3 className="text-xl font-bold text-slate-900 mt-10 mb-4" id="deletion-process">Account Deletion</h3>
                         <p>
                             If you wish to delete your MediMan account, you can initiate the process by visiting our account deletion page: <a href="https://mediman.life/delete-account/">https://mediman.life/delete-account/</a>. We will guide you through a verification process to confirm your identity (for your protection, we need to be sure the request is authentic). You will also be asked to acknowledge the consequences of deletion (for example, losing access to your data and history). Once confirmed, we will schedule your data for deletion from our active systems. Backup data will be phased out over our backup retention cycle, except for any information we are required to keep by law (as noted below).
                         </p>
                         <p>
                             <strong>Deletion Acknowledgment (shown during account deletion):</strong> “Important: In accordance with healthcare regulations and legal requirements, we will retain your booking records (appointment dates, doctor information, visit types, and payment references) for medical audit and legal compliance purposes. All other personal profile data and system data will be permanently deleted or anonymized. I understand the data retention policy stated above and confirm my request to permanently delete my MediMan account. I acknowledge that this action cannot be undone and that booking records will be retained as described for legal compliance.”
                         </p>
-                        <h3 id="protection-rights">Your Data Protection Rights</h3>
+                        <h3 className="text-xl font-bold text-slate-900 mt-10 mb-4" id="protection-rights">Your Data Protection Rights</h3>
                         <p>Depending on the laws that apply to you (for example, GDPR if you are in the EU, or CCPA if you are in California), you may have some or all of the following rights regarding your personal data:</p>
                         <ul>
                             <li><strong>Right of Access:</strong> You can request a copy of the personal data we hold about you, and information about how we process it.</li>
@@ -212,7 +212,7 @@ export default function PrivacyPolicyPage() {
                             <li><strong>Right to Withdraw Consent:</strong> If we are processing your personal data based on your consent, you have the right to withdraw that consent at any time. For example, you can opt out of marketing emails by withdrawing consent, or disable certain app analytics if they were consent-based. Withdrawing consent will not affect the lawfulness of any processing we did before your withdrawal.</li>
                         </ul>
 
-                        <h3 id="ccpa-rights">California Residents (CCPA/CPRA)</h3>
+                        <h3 className="text-xl font-bold text-slate-900 mt-10 mb-4" id="ccpa-rights">California Residents (CCPA/CPRA)</h3>
                         <p>If you are a California resident, you have specific rights under the California Consumer Privacy Act (CCPA) and the California Privacy Rights Act (CPRA), including:</p>
                         <ul>
                             <li>The right to know what personal information is collected, used, disclosed, or sold, and to access that information.</li>
@@ -225,7 +225,7 @@ export default function PrivacyPolicyPage() {
                             To exercise any of your rights or make a privacy-related request, please contact us at <a href="mailto:itsupport@mediman.life">itsupport@mediman.life</a>. For security, we may need to verify your identity (and authority, if you are making a request on behalf of someone else) before fulfilling your request. We aim to respond to all valid requests within the timeframe required by law (generally within 30 days, though this can be extended if necessary with notice to you). There is no fee for making a request, but if a request is unfounded or excessive, we may charge a reasonable fee or refuse to act on it.
                         </p>
 
-                        <h2 id="childrens-privacy">16. Children’s Privacy</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="childrens-privacy">16. Children’s Privacy</h2>
                         <p>
                             Protecting children’s privacy is extremely important to us. The MediMan Patient Application is not intended for children under the age of 18 (or the minimum age of digital consent in your region) unless a parent or legal guardian has provided verifiable consent and is supervising the child’s use of the service. We do not knowingly allow children under 18 to create accounts or use the Patient app without the required consent.
                         </p>
@@ -239,7 +239,7 @@ export default function PrivacyPolicyPage() {
                             We do not market our Services to minors, nor do we knowingly use any personal data of minors for marketing purposes. If we become aware that we have collected personal data from a child under the relevant age without proper consent, we will take steps to delete that information. Parents or guardians who believe we might have information about a child under 13 (in an unauthorized way) can contact us to request deletion.
                         </p>
 
-                        <h2 id="cookies-tracking">17. Cookies, SDKs & Tracking</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="cookies-tracking">17. Cookies, SDKs & Tracking</h2>
                         <p>Our Services utilize a minimal amount of tracking technology, primarily for the operation of the app and to improve your experience:</p>
                         <ul>
                             <li><strong>In the Mobile Apps:</strong> We do not use traditional “cookies” in mobile applications, but we use similar mechanisms:
@@ -265,7 +265,7 @@ export default function PrivacyPolicyPage() {
                             For more details on our use of cookies and similar technologies, you may refer to our Cookie Policy (if available) or reach out to us with questions. You can control cookies through your browser settings (for web) and control analytics/telemetry in the app settings or by contacting support.
                         </p>
 
-                        <h2 id="platform-compliance">18. Platform & App Store Compliance</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="platform-compliance">18. Platform & App Store Compliance</h2>
                         <p>We adhere to app store policies and privacy requirements set by platform providers:</p>
                         <ul>
                             <li><strong>Google Play (Android):</strong> We maintain accurate Data Safety information on our Google Play Store listing, disclosing what data is collected and how it’s used, in line with Google’s requirements. Our app also complies with Google Play’s Developer Policies, including those on user data, permissions, and (if ever applicable) the Families Policy for apps that might be used by children (though our app is generally not for young children, we still ensure compliance where relevant). We provide in-app privacy notices and prompts in clear language.</li>
@@ -273,7 +273,7 @@ export default function PrivacyPolicyPage() {
                         </ul>
                         <p>In summary, we make sure that our apps meet the privacy expectations of the platforms they run on, and we keep those disclosures up to date as our app evolves.</p>
 
-                        <h2 id="third-party-links">19. Third-Party Links</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="third-party-links">19. Third-Party Links</h2>
                         <p>
                             The MediMan platform and communications may occasionally contain links to external websites or services that we do not operate. For example, a doctor might share a link to an external resource, or our website might link to a medical article or a regulatory authority’s site for informational purposes. Please be aware that once you leave our platform or are redirected to a third-party site/app, this Privacy Policy no longer applies.
                         </p>
@@ -281,7 +281,7 @@ export default function PrivacyPolicyPage() {
                             Any information you provide to those third-party sites is governed by their own privacy policies. We strongly encourage you to read the privacy policies of any external sites or services before providing your personal data to them. MediMan is not responsible for the content, privacy practices, or handling of information by any third parties that are not under our control.
                         </p>
 
-                        <h2 id="accessibility">20. Accessibility</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="accessibility">20. Accessibility</h2>
                         <p>We are committed to ensuring our Privacy Policy is accessible and understandable to all users:</p>
                         <ul>
                             <li>We can provide this Privacy Policy in different languages to serve our global user base. If the app is offered in a certain language, we aim to have the Privacy Policy available in that language as well.</li>
@@ -292,7 +292,7 @@ export default function PrivacyPolicyPage() {
                             Your understanding of your privacy rights and our practices is important. If anything in this Policy is unclear, feel free to reach out to us with questions.
                         </p>
 
-                        <h2 id="changes">21. Changes to This Policy</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="changes">21. Changes to This Policy</h2>
                         <p>
                             We may update or modify this Privacy Policy from time to time to reflect changes in our practices, technologies, legal requirements, or other factors. When we make changes, we will change the “Last Updated” date at the top of this Policy.
                         </p>
@@ -303,7 +303,7 @@ export default function PrivacyPolicyPage() {
                             We encourage you to review this Privacy Policy periodically. Continuing to use the MediMan services after a Policy update means you acknowledge and agree to the revised terms (unless further action is required, such as explicit consent). If you do not agree with the changes to the Policy, you should stop using the Services and may delete your account as described above.
                         </p>
 
-                        <h2 id="dispute-resolution">22. Dispute Resolution & Regulatory Recourse</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="dispute-resolution">22. Dispute Resolution & Regulatory Recourse</h2>
                         <p>If you have questions, concerns, or complaints about how we handle your privacy or personal data, we’re here to help:</p>
                         <ul>
                             <li><strong>Contact Us First:</strong> We encourage you to contact us so we can address your concern directly. You can reach out to our Data Protection Officer or our support team at <a href="mailto:itsupport@mediman.life">itsupport@mediman.life</a>. We will acknowledge your complaint and work with you to find a solution. We aim to respond within 30 days or sooner, in line with applicable laws.</li>
@@ -314,7 +314,7 @@ export default function PrivacyPolicyPage() {
                             Your trust is of utmost importance to us. We will do our best to resolve any privacy-related issues in a fair and transparent manner.
                         </p>
 
-                        <h2 id="technology-hosting">23. Technology & Hosting Statement</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="technology-hosting">23. Technology & Hosting Statement</h2>
                         <p>
                             We use an exclusive technology platform for hosting MediMan’s applications and data. This means all your personal data and all operational data of our service reside on secure servers. It is a leading cloud provider with robust security certifications and compliance with international standards, which helps us maintain a high level of security and reliability.
                         </p>
@@ -328,7 +328,7 @@ export default function PrivacyPolicyPage() {
                             By using our Services, you benefit from a secure environment as well as our own security measures described above. If you have specific questions about our technology stack or hosting, feel free to contact us.
                         </p>
 
-                        <h2 id="acknowledgment" className="border-t border-slate-200 pt-8 mt-12 pb-4 mb-4">Acknowledgment</h2>
+                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="acknowledgment" className="border-t border-slate-200 pt-8 mt-12 pb-4 mb-4">Acknowledgment</h2>
                         <p className="font-medium text-slate-800 italic">
                             By using the MediMan Services, Patient Application or the MediMan Doctor Application, you confirm that you have read and understood this Privacy Policy and agree to its terms. If you do not agree with any part of this Policy, please refrain from using our Services or contact us to discuss any concerns.
                         </p>

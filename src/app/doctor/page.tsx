@@ -4,6 +4,7 @@ import { DoctorAppShowcase } from '@/components/doctor/DoctorAppShowcase';
 import { DoctorHowItWorks } from '@/components/doctor/DoctorHowItWorks';
 import { DoctorFAQ } from '@/components/doctor/DoctorFAQ';
 import { DoctorCTA } from '@/components/doctor/DoctorCTA';
+import { SectionDivider } from '@/components/ui/SectionDivider';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -17,10 +18,15 @@ export default function DoctorPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
         <DoctorHero />
+        <SectionDivider />
         <DoctorFeatures />
+        <SectionDivider />
         <DoctorAppShowcase />
+        <SectionDivider />
         <DoctorHowItWorks />
+        <SectionDivider />
         <DoctorFAQ />
+        <SectionDivider />
         <DoctorCTA />
       </main>
     </div>

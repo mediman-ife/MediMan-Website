@@ -102,7 +102,7 @@ const faqs = [
 
 export function DoctorFAQ() {
   return (
-    <section className="w-full pt-16 md:pt-24 pb-32 md:pb-56 relative overflow-hidden">
+    <section className="w-full py-16 relative overflow-hidden">
       {/* Background Base */}
       <div className="absolute inset-0 bg-white -z-20"></div>
       {/* Ambient Backgrounds */}

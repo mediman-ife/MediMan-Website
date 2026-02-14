@@ -328,13 +328,13 @@ export default function PrivacyPolicyPage() {
                             By using our Services, you benefit from a secure environment as well as our own security measures described above. If you have specific questions about our technology stack or hosting, feel free to contact us.
                         </p>
 
-                        <h2 className="text-2xl font-extrabold text-black mt-20 mb-8 pb-4 border-b border-slate-100" id="acknowledgment" className="border-t border-slate-200 pt-8 mt-12 pb-4 mb-4">Acknowledgment</h2>
+                        <h2 id="acknowledgment" className="text-2xl !font-extrabold text-black mt-12 mb-4 pb-4 border-t border-slate-200 pt-8">Acknowledgment</h2>
                         <p className="font-medium text-slate-800 italic">
                             By using the MediMan Services, Patient Application or the MediMan Doctor Application, you confirm that you have read and understood this Privacy Policy and agree to its terms. If you do not agree with any part of this Policy, please refrain from using our Services or contact us to discuss any concerns.
                         </p>
 
                         <p className="text-sm text-slate-400 mt-12 text-center">
-                            © 2026 Mediman Life (PVT) Ltd. All rights reserved.
+                            © {new Date().getFullYear()} Mediman Life (PVT) Ltd. All rights reserved.
                         </p>
 
                     </div>

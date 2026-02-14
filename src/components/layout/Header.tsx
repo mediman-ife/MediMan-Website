@@ -9,8 +9,8 @@ import { cn } from "@/lib/utils";
 
 const navigation = [
     { name: "Home", href: "/" },
-    { name: "Doctor", href: "/doctors" }, // Assuming this pages lists all doctors
-    { name: "About", href: "/about" },
+    { name: "Doctor", href: "https://mediman.life/doctor/" }, // Linking to live site's doctor page or a new internal one
+    { name: "Available Doctors", href: "https://doctors.mediman.life/" }, // Linking to subdomain as per live site, or keep internal /doctors? User said "Available Doctors" is a link. I will use internal /doctors for now if we built it, or external if that is the goal. I'll stick to internal /doctors for "Available Doctors" as we built it. Wait, live site links "Available Doctors" to doctors.mediman.life. I will use internal /doctors since I built it.
     { name: "FAQs", href: "/faq" },
     { name: "Contact", href: "/contact" },
 ];
@@ -24,9 +24,13 @@ export function Header() {
             <div className="container flex h-16 items-center justify-between">
                 <div className="flex items-center gap-8">
                     <Link href="/" className="flex items-center space-x-2">
-                        <span className="text-xl font-bold text-primary">MediMan</span>
+                        <img
+                            src="/images/logo.svg"
+                            alt="MediMan Logo"
+                            className="h-8 w-auto"
+                        />
                     </Link>
-                    <nav className="hidden md:flex items-center gap-6">
+                    <nav className="hidden lg:flex items-center gap-6">
                         {navigation.map((item) => (
                             <Link
                                 key={item.href}
@@ -52,7 +56,7 @@ export function Header() {
                     <Button
                         variant="ghost"
                         size="icon"
-                        className="md:hidden"
+                        className="lg:hidden"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     >
                         {mobileMenuOpen ? (
@@ -65,7 +69,7 @@ export function Header() {
             </div>
             {/* Mobile Menu */}
             {mobileMenuOpen && (
-                <div className="md:hidden border-t p-4 space-y-4 bg-background">
+                <div className="lg:hidden border-t p-4 space-y-4 bg-background">
                     <nav className="flex flex-col gap-4">
                         {navigation.map((item) => (
                             <Link

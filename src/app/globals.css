@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @plugin "tailwindcss-animate";
 
@@ -8,23 +8,23 @@
   --font-sans: var(--font-sans);
 
   /* Primary 1: Red */
-  --color-brand-red: #CC0052;
-  --color-brand-red-light: #FFF0F5;
-  --color-brand-red-dark: #99003D;
+  --color-brand-red: #cc0052;
+  --color-brand-red-light: #fff0f5;
+  --color-brand-red-dark: #99003d;
 
   /* Primary 2: Blue */
-  --color-brand-blue: #1751C2;
-  --color-brand-blue-light: #EFF6FF;
-  --color-brand-blue-dark: #0F3577;
+  --color-brand-blue: #1751c2;
+  --color-brand-blue-light: #eff6ff;
+  --color-brand-blue-dark: #0f3577;
 
   /* Doctor App Alternate */
-  --color-brand-purple: #7E57C2;
-  --color-brand-purple-light: #F3F0FF;
-  --color-brand-purple-dark: #5B3A94;
+  --color-brand-purple: #7e57c2;
+  --color-brand-purple-light: #f3f0ff;
+  --color-brand-purple-dark: #5b3a94;
 
   /* Convenience aliases */
-  --color-brand-light: #EFF6FF;
-  --color-brand-dark: #0F3577;
+  --color-brand-light: #eff6ff;
+  --color-brand-dark: #0f3577;
 
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -63,21 +63,21 @@
 
   @keyframes accordion-down {
     from {
-      height: 0
+      height: 0;
     }
 
     to {
-      height: var(--radix-accordion-content-height)
+      height: var(--radix-accordion-content-height);
     }
   }
 
   @keyframes accordion-up {
     from {
-      height: var(--radix-accordion-content-height)
+      height: var(--radix-accordion-content-height);
     }
 
     to {
-      height: 0
+      height: 0;
     }
   }
 }
@@ -91,7 +91,6 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
-
   *,
   ::after,
   ::before,

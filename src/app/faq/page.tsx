@@ -6,6 +6,7 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Metadata } from "next";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
     title: "Frequently Asked Questions | MediMan",
@@ -50,25 +51,29 @@ const faqs = [
 export default function FAQPage() {
     return (
         <div className="container py-12 md:py-20 max-w-3xl">
-            <div className="text-center mb-12">
-                <h1 className="text-3xl font-bold tracking-tight mb-4 text-primary">Frequently Asked Questions</h1>
-                <p className="text-muted-foreground">
-                    Everything you need to know about the MediMan platform.
-                </p>
-            </div>
+            <ScrollReveal variant="fade-up">
+                <div className="text-center mb-12">
+                    <h1 className="text-3xl font-bold tracking-tight mb-4 text-primary">Frequently Asked Questions</h1>
+                    <p className="text-muted-foreground">
+                        Everything you need to know about the MediMan platform.
+                    </p>
+                </div>
+            </ScrollReveal>
 
-            <Accordion type="single" collapsible className="w-full">
-                {faqs.map((faq, index) => (
-                    <AccordionItem key={index} value={`item-${index}`}>
-                        <AccordionTrigger className="text-left font-medium text-lg">
-                            {faq.question}
-                        </AccordionTrigger>
-                        <AccordionContent className="text-muted-foreground">
-                            {faq.answer}
-                        </AccordionContent>
-                    </AccordionItem>
-                ))}
-            </Accordion>
+            <ScrollReveal variant="fade-up" delay={150}>
+                <Accordion type="single" collapsible className="w-full">
+                    {faqs.map((faq, index) => (
+                        <AccordionItem key={index} value={`item-${index}`}>
+                            <AccordionTrigger className="text-left font-medium text-lg">
+                                {faq.question}
+                            </AccordionTrigger>
+                            <AccordionContent className="text-muted-foreground">
+                                {faq.answer}
+                            </AccordionContent>
+                        </AccordionItem>
+                    ))}
+                </Accordion>
+            </ScrollReveal>
         </div>
     );
 }

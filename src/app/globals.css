@@ -7,7 +7,22 @@
 @theme {
   --font-sans: var(--font-sans);
 
+  /* Primary 1: Red */
+  --color-brand-red: #CC0052;
+  --color-brand-red-light: #FFF0F5;
+  --color-brand-red-dark: #99003D;
+
+  /* Primary 2: Blue */
   --color-brand-blue: #1751C2;
+  --color-brand-blue-light: #EFF6FF;
+  --color-brand-blue-dark: #0F3577;
+
+  /* Doctor App Alternate */
+  --color-brand-purple: #7E57C2;
+  --color-brand-purple-light: #F3F0FF;
+  --color-brand-purple-dark: #5B3A94;
+
+  /* Convenience aliases */
   --color-brand-light: #EFF6FF;
   --color-brand-dark: #0F3577;
 
@@ -99,9 +114,9 @@
   --popover: 0 0% 100%;
   --popover-foreground: 222 47% 11%;
 
-  /* Brand Blue #1751C2 -> HSL 220 78% 42% */
-  --primary: 220 78% 42%;
-  --primary-foreground: 210 40% 98%;
+  /* Brand Blue #1751C2 -> HSL 216 80% 42% */
+  --primary: 216 80% 42%;
+  --primary-foreground: 0 0% 100%;
 
   /* Secondary/Accent - Soft Blue/Cyan */
   --secondary: 199 89% 48%;
@@ -119,7 +134,7 @@
 
   --border: 214.3 31.8% 91.4%;
   --input: 214.3 31.8% 91.4%;
-  --ring: 220 78% 42%;
+  --ring: 216 80% 42%;
 
   --radius: 0.75rem;
   /* 12px for modern rounded look */
@@ -175,10 +190,75 @@
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[var(--color-brand-blue)] to-[#0EA5E9];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[var(--color-brand-red)] to-[var(--color-brand-blue)];
   }
 
   .container-width {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
+}
+
+/* ═══════════════════════════════════════════
+   Scroll-Reveal Animation System
+   ═══════════════════════════════════════════ */
+
+.scroll-reveal {
+  will-change: transform, opacity;
+  transition-property: transform, opacity;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hidden states per variant */
+.scroll-reveal.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.scroll-reveal.fade-down {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.scroll-reveal.fade-left {
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+.scroll-reveal.fade-right {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+.scroll-reveal.fade-in {
+  opacity: 0;
+}
+
+.scroll-reveal.scale-in {
+  opacity: 0;
+  transform: scale(0.92);
+}
+
+.scroll-reveal.slide-up {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+/* Visible state — all variants reset */
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    transition-duration: 0ms !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Smooth scroll for the whole page */
+html {
+  scroll-behavior: smooth;
 }

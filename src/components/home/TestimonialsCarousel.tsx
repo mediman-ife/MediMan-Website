@@ -87,7 +87,7 @@ export function TestimonialsCarousel() {
                                 isActive ? "opacity-100 translate-x-0 relative z-10" : "opacity-0 translate-x-8 absolute z-0 pointer-events-none"
                             )}
                         >
-                            <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 relative hover:shadow-lg transition-shadow duration-300">
+                            <div className="bg-white p-8 rounded-3xl border border-brand-blue/12 shadow-xl shadow-brand-blue/8 relative hover:shadow-2xl transition-shadow duration-300 ring-1 ring-brand-blue/5">
                                 <span className="absolute top-6 right-6 text-6xl text-slate-200 font-serif leading-none select-none">"</span>
 
                                 <div className="flex gap-1 mb-4">

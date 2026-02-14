@@ -69,7 +69,7 @@ export function Header() {
                 </div>
                 <div className="flex items-center gap-6">
                     <Link href="https://play.google.com/store/apps/details?id=com.mediman.life" className="hidden sm:block">
-                        <Button className="bg-brand-blue hover:bg-brand-dark text-white rounded-full px-6 shadow-lg shadow-brand-blue/20 transition-all hover:shadow-brand-blue/40">
+                        <Button className="bg-brand-red hover:bg-brand-red-dark text-white rounded-full px-6 shadow-lg shadow-brand-red/20 transition-all hover:shadow-brand-red/40">
                             Download App
                         </Button>
                     </Link>
@@ -103,7 +103,7 @@ export function Header() {
                         ))}
                         <div className="h-px bg-gray-100 my-2" />
                         <Link href="https://play.google.com/store/apps/details?id=com.mediman.life">
-                            <Button className="w-full bg-brand-blue hover:bg-brand-dark text-white rounded-full py-6 text-lg">
+                            <Button className="w-full bg-brand-red hover:bg-brand-red-dark text-white rounded-full py-6 text-lg">
                                 Download App
                             </Button>
                         </Link>

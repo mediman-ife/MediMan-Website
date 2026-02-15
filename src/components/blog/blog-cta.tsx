@@ -2,8 +2,6 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ScrollReveal } from '@/components/ui/scroll-reveal';
-import { ArrowRight } from 'lucide-react';
 
 export function BlogCTA() {
     return (

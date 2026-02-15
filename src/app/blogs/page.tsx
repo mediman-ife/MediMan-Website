@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { BLOGS } from '@/data/blogs';
 import { ArrowRight, Calendar, User, Tag } from 'lucide-react';
-import { cn } from '@/lib/utils';
 
 export default function BlogListingPage() {
     return (

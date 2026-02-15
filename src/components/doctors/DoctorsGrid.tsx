@@ -26,7 +26,7 @@ export default function DoctorsGrid({ doctors, isLoading }: DoctorsGridProps) {
                 </div>
                 <h3 className="text-lg font-bold text-slate-900">No doctors found</h3>
                 <p className="text-slate-500 max-w-sm mt-2">
-                    We couldn't find any doctors matching your current filters. Try adjusting your search or clearing some filters.
+                    We couldn&apos;t find any doctors matching your current filters. Try adjusting your search or clearing some filters.
                 </p>
             </div>
         );

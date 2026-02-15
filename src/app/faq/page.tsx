@@ -8,7 +8,6 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Search, MessageCircle, ArrowRight, X } from 'lucide-react';
-import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
 const FAQS = [
@@ -173,7 +172,7 @@ export default function FAQPage() {
                 Still have questions?
               </h2>
               <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-                Can't find the answer you're looking for? Our friendly support
+                Can&apos;t find the answer you&apos;re looking for? Our friendly support
                 team is here to help.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

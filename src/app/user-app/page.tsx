@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { cn } from '@/lib/utils';
 import { Loader2 } from 'lucide-react';
 
 const PLAY_STORE =
@@ -41,6 +40,7 @@ export default function UserAppPage() {
 
         const currentPlatform = detectPlatform();
         setPlatform(currentPlatform);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
 
         // Redirect logic
         const handleRedirect = () => {

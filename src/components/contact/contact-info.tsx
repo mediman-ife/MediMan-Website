@@ -15,7 +15,7 @@ export function ContactInfo() {
             <div>
               <h4 className="text-red-800 font-bold mb-1 text-lg">Not for Emergencies</h4>
               <p className="text-red-700 text-sm leading-relaxed">
-                MediMan is not for emergencies. If you're facing a medical emergency, please contact your local emergency services immediately.
+                MediMan is not for emergencies. If you&apos;re facing a medical emergency, please contact your local emergency services immediately.
               </p>
             </div>
           </div>
@@ -93,7 +93,7 @@ export function ContactInfo() {
   );
 }
 
-function SocialLink({ href, icon: Icon, color, bg }: { href: string; icon: any; color: string; bg: string }) {
+function SocialLink({ href, icon: Icon, color, bg }: { href: string; icon: React.ElementType; color: string; bg: string }) {
   return (
     <a
       href={href}

@@ -12,7 +12,7 @@ interface DoctorCardProps {
 
 export default function DoctorCard({ doctor }: DoctorCardProps) {
     const getChargesText = () => {
-        let charges = [];
+        const charges = [];
         if (doctor.charges?.onlineCharge?.amount) {
             charges.push(`Online: ${doctor.charges.onlineCharge.currency} ${doctor.charges.onlineCharge.amount}`);
         }

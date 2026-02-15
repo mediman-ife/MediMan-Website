@@ -404,7 +404,7 @@ export default function TermsPage() {
                   </div>
                   <div>
                     <span className="block text-sm font-medium text-slate-500">Website & Resources</span>
-                    <p>Visit <a href="https://www.mediman.life" target="_blank" className="text-brand-purple font-bold hover:underline">www.mediman.life</a> for FAQs and support.</p>
+                    <p>Visit <a href="https://www.mediman.life" target="_blank" rel="noopener noreferrer" className="text-brand-purple font-bold hover:underline">www.mediman.life</a> for FAQs and support.</p>
                   </div>
                 </div>
               </div>

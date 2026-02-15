@@ -10,7 +10,6 @@ import {
     MessageCircle,
     Instagram
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
 
@@ -27,6 +26,7 @@ export function ShareButtons({ title, slug }: ShareButtonsProps) {
         if (typeof window !== 'undefined') {
             setCurrentUrl(`${window.location.origin}/blogs/${slug}`);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [slug]);
 
     const encodedUrl = encodeURIComponent(currentUrl);

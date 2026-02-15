@@ -2,16 +2,27 @@
 
 import { FilterConstants } from '@/types/doctor';
 
+interface SelectedFilters {
+    gender: string[];
+    consultationType: string[];
+    service: string[];
+    languages: string[];
+    clinic: string[];
+    [key: string]: string[]; // allow index access
+}
+
 interface DoctorFiltersProps {
     filters?: FilterConstants;
-    selectedFilters: any;
-    onFilterChange: (newFilters: any) => void;
+    selectedFilters: SelectedFilters;
+    onFilterChange: (newFilters: SelectedFilters) => void;
     isLoading: boolean;
 }
 
 export default function DoctorFilters({ filters, selectedFilters, onFilterChange, isLoading }: DoctorFiltersProps) {
-    console.log('DoctorFilters filters:', filters);
-    console.log('DoctorFilters filters.clinics:', filters?.clinics);
+    if (process.env.NODE_ENV === 'development') {
+        console.log('DoctorFilters filters:', filters);
+        console.log('DoctorFilters filters.clinics:', filters?.clinics);
+    }
 
     const handleCheckboxChange = (category: string, value: string) => {
         const currentValues = selectedFilters[category] || [];

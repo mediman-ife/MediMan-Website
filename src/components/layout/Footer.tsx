@@ -11,7 +11,7 @@ import {
   FileText,
   Stethoscope,
 } from 'lucide-react';
-import { Logo } from '@/components/ui/logo';
+import { Logo } from '@/components/ui/Logo';
 
 export function Footer() {
   return (

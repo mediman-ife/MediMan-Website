@@ -119,18 +119,39 @@ export default function DoctorAppPage() {
                 </div>
 
                 {showButtons && (
-                    <div className="flex flex-col gap-3 animate-in fade-in slide-in-from-bottom-2 duration-300">
+                    <div className="flex flex-col gap-4 animate-in fade-in slide-in-from-bottom-2 duration-300 items-center">
                         <a
-                            href={platform?.type === 'ios' ? APP_STORE : PLAY_STORE}
-                            className="flex items-center justify-center gap-3 px-6 py-4 rounded-xl text-white font-bold text-lg transition-all hover:-translate-y-1 shadow-lg hover:shadow-brand-blue/50 bg-gradient-to-r from-brand-blue to-brand-purple border border-white/20"
+                            href={APP_STORE}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="transition-transform hover:scale-105 hover:shadow-lg rounded-lg block w-48"
                         >
-                            {platform?.type === 'ios'
-                                ? 'Download on App Store'
-                                : 'Get it on Google Play'}
+                            <Image
+                                src="/images/app-store.png"
+                                alt="Download on the App Store"
+                                width={180}
+                                height={54}
+                                className="w-full h-auto"
+                            />
                         </a>
+                        <a
+                            href={PLAY_STORE}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="transition-transform hover:scale-105 hover:shadow-lg rounded-lg block w-48"
+                        >
+                            <Image
+                                src="/images/google-play.png"
+                                alt="Get it on Google Play"
+                                width={180}
+                                height={54}
+                                className="w-full h-auto"
+                            />
+                        </a>
+
                         <button
                             onClick={() => router.push('/')}
-                            className="flex items-center justify-center gap-3 px-6 py-3.5 rounded-xl text-white/90 font-semibold text-base transition-all hover:bg-white/10 border border-white/10 hover:border-white/30"
+                            className="mt-2 flex items-center justify-center gap-2 px-6 py-2 rounded-full text-white/70 font-medium text-sm transition-all hover:bg-white/10 border border-transparent hover:border-white/20"
                         >
                             Visit Website
                         </button>

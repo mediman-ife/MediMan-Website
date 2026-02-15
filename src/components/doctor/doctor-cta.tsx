@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { ScrollReveal } from '@/components/ui/scroll-reveal';
 
 export function DoctorCTA() {
   return (

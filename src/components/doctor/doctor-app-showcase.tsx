@@ -1,12 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
-import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { ScrollReveal } from '@/components/ui/scroll-reveal';
 
 export function DoctorAppShowcase() {
     return (
         <section className="w-full py-16 md:py-24 bg-white relative overflow-hidden">
             <div className="container-width px-4 md:px-6">
-                <ScrollReveal variant="scale-in" width="100%">
+                <ScrollReveal variant="scale-in">
                     <div className="relative w-full rounded-[2.5rem] overflow-hidden shadow-2xl shadow-brand-blue/10 bg-slate-50 ring-1 ring-slate-200/50">
                         <Image
                             src="/images/doctor/hero-bg.webp"

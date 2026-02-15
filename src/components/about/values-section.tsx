@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollReveal, StaggerChildren } from '@/components/ui/ScrollReveal';
+import { ScrollReveal, StaggerChildren } from '@/components/ui/scroll-reveal';
 
 export function ValuesSection() {
   return (

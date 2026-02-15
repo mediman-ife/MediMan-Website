@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import Link from 'next/link';
 
 // Form Schema
@@ -19,20 +19,16 @@ const formSchema = z.object({
     userId: z.string().optional(),
     email: z.string().email("Invalid email address"),
     phone: z.string().min(5, "Phone number must be at least 5 characters"), // Global validation
-    userRole: z.enum(["doctor", "patient"], {
-        required_error: "Please select a user role",
-    }),
+    userRole: z.enum(["doctor", "patient"]),
     country: z.string().min(1, "Country is required"),
-    preferredContact: z.enum(["email", "phone", "whatsapp", "sms"], {
-        required_error: "Please select a preferred contact method",
-    }),
+    preferredContact: z.enum(["email", "phone", "whatsapp", "sms"]),
     contactNumber: z.string().optional(),
     sameAsRegistered: z.boolean().default(false).optional(),
     alternativeEmail: z.string().email("Invalid email address").optional().or(z.literal("")),
     deletionReason: z.string().min(1, "Primary reason is required"),
     additionalDetails: z.string().optional(),
-    confirmation: z.literal(true, {
-        errorMap: () => ({ message: "You must confirm the data retention policy" }),
+    confirmation: z.boolean().refine(val => val === true, {
+        message: "You must confirm the data retention policy",
     }),
 }).superRefine((data, ctx) => {
     // Conditional validation: Contact Number is required if method is phone/whatsapp/sms

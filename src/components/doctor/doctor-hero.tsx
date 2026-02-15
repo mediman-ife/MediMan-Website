@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ShieldCheck, FileText, Users, Activity, Video } from 'lucide-react';
-import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { ScrollReveal } from '@/components/ui/scroll-reveal';
 
 export function DoctorHero() {
     return (

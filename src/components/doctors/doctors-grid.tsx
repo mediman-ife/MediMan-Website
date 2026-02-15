@@ -1,6 +1,6 @@
 import React from 'react';
-import { DoctorCard } from '@/components/doctors/DoctorCard';
-import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { DoctorCard } from '@/components/doctors/doctor-card';
+import { ScrollReveal } from '@/components/ui/scroll-reveal';
 import { Doctor } from '@/types/doctor';
 
 interface DoctorsGridProps {

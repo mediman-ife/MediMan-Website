@@ -1,6 +1,6 @@
 import React from 'react';
 import { CalendarClock, Globe, Network } from 'lucide-react';
-import { StaggerChildren } from '@/components/ui/ScrollReveal';
+import { StaggerChildren } from '@/components/ui/scroll-reveal';
 
 // Returning to the original content but with Home Page consistent spacing/dividers
 const features = [

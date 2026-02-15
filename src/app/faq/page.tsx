@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
-import { ScrollReveal } from '@/components/ui/ScrollReveal';
-import { FAQList } from '@/components/faq/FAQList';
+import { ScrollReveal } from '@/components/ui/scroll-reveal';
+import { FAQList } from '@/components/faq/faq-list';
 
 export const metadata: Metadata = {
   title: 'Frequently Asked Questions | MediMan',

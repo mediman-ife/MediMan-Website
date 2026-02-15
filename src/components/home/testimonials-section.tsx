@@ -1,8 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import { Star } from 'lucide-react';
-import { ScrollReveal } from '@/components/ui/ScrollReveal';
-import { TestimonialsCarousel } from '@/components/home/TestimonialsCarousel';
+import { ScrollReveal } from '@/components/ui/scroll-reveal';
+import { TestimonialsCarousel } from '@/components/home/testimonials-carousel';
 
 export function TestimonialsSection() {
   return (

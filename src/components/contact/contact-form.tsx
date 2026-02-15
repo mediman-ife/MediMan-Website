@@ -5,7 +5,7 @@ import { Send, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { ScrollReveal } from '@/components/ui/scroll-reveal';
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);

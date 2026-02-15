@@ -1,10 +1,10 @@
-import { DoctorHero } from '@/components/doctor/DoctorHero';
-import { DoctorFeatures } from '@/components/doctor/DoctorFeatures';
-import { DoctorAppShowcase } from '@/components/doctor/DoctorAppShowcase';
-import { DoctorHowItWorks } from '@/components/doctor/DoctorHowItWorks';
-import { DoctorFAQ } from '@/components/doctor/DoctorFAQ';
-import { DoctorCTA } from '@/components/doctor/DoctorCTA';
-import { SectionDivider } from '@/components/ui/SectionDivider';
+import { DoctorHero } from '@/components/doctor/doctor-hero';
+import { DoctorFeatures } from '@/components/doctor/doctor-features';
+import { DoctorAppShowcase } from '@/components/doctor/doctor-app-showcase';
+import { DoctorHowItWorks } from '@/components/doctor/doctor-how-it-works';
+import { DoctorFAQ } from '@/components/doctor/doctor-faq';
+import { DoctorCTA } from '@/components/doctor/doctor-cta';
+import { SectionDivider } from '@/components/ui/section-divider';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Video, Clock, FileText, Users, Pill } from 'lucide-react';
-import { ScrollReveal, StaggerChildren } from '@/components/ui/ScrollReveal';
+import { ScrollReveal, StaggerChildren } from '@/components/ui/scroll-reveal';
 
 export function FeaturesSection() {
   return (

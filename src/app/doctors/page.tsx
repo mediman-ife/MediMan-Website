@@ -1,9 +1,9 @@
-import { DoctorFilters } from '@/components/doctors/DoctorFilters';
-import { DoctorsGrid } from '@/components/doctors/DoctorsGrid';
+import { DoctorFilters } from '@/components/doctors/doctor-filters';
+import { DoctorsGrid } from '@/components/doctors/doctors-grid';
 import { getDoctors } from '@/actions/getDoctors';
 import { Suspense } from 'react';
 import { Metadata } from 'next';
-import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { ScrollReveal } from '@/components/ui/scroll-reveal';
 
 interface DoctorsPageProps {
   searchParams: Promise<{

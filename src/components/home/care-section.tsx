@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ShieldCheck, Video, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { ScrollReveal } from '@/components/ui/scroll-reveal';
 
 export function CareSection() {
   return (

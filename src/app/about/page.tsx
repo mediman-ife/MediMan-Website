@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
-import { AboutHero } from '@/components/about/AboutHero';
-import { MissionSection } from '@/components/about/MissionSection';
-import { ValuesSection } from '@/components/about/ValuesSection';
-import { AboutCTA } from '@/components/about/AboutCTA';
+import { AboutHero } from '@/components/about/about-hero';
+import { MissionSection } from '@/components/about/mission-section';
+import { ValuesSection } from '@/components/about/values-section';
+import { AboutCTA } from '@/components/about/about-cta';
 
 export const metadata: Metadata = {
   title: 'About Us | MediMan',

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { ContactHero } from '@/components/contact/ContactHero';
-import { ContactForm } from '@/components/contact/ContactForm';
-import { ContactInfo } from '@/components/contact/ContactInfo';
+import { ContactHero } from '@/components/contact/contact-hero';
+import { ContactForm } from '@/components/contact/contact-form';
+import { ContactInfo } from '@/components/contact/contact-info';
 
 export const metadata: Metadata = {
   title: 'Contact Us | MediMan',

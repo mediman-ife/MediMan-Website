@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
-import { DM_Sans } from 'next/font/google'; // Using DM Sans for a premium, clean look
+import { DM_Sans } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
+import { AppShell } from '@/components/layout/app-shell';
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -33,9 +32,7 @@ export default function RootLayout({
           dmSans.variable
         )}
       >
-        <Header />
-        <div className="flex-1">{children}</div>
-        <Footer />
+        <AppShell>{children}</AppShell>
       </body>
     </html>
   );

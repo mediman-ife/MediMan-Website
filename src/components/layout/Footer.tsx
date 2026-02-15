@@ -14,7 +14,7 @@ import {
   Stethoscope,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Logo } from '@/components/ui/Logo';
+import { Logo } from '@/components/ui/logo';
 
 export function Footer() {
   return (

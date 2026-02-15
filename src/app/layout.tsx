@@ -3,6 +3,7 @@ import { DM_Sans } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { AppShell } from '@/components/layout/app-shell';
+import { Toaster } from 'sonner';
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -33,6 +34,7 @@ export default function RootLayout({
         )}
       >
         <AppShell>{children}</AppShell>
+        <Toaster position="top-center" richColors />
       </body>
     </html>
   );

@@ -2,7 +2,7 @@ import { BLOGS } from '@/data/blogs';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowLeft, Calendar, User, Clock, CheckCircle2, Link as LinkIcon } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Clock, Link as LinkIcon } from 'lucide-react';
 import { Metadata } from 'next';
 import { ShareButtons } from '@/components/blog/share-buttons';
 import { TableOfContents } from '@/components/blog/table-of-contents';

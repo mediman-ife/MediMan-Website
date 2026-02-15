@@ -66,6 +66,7 @@ export default function AccountDeletionPage() {
     });
 
     // Watch fields for conditional logic
+    // eslint-disable-next-line react-hooks/incompatible-library
     const preferredContact = watch("preferredContact");
     const registeredPhone = watch("phone");
     const sameAsRegistered = watch("sameAsRegistered");
@@ -88,7 +89,7 @@ export default function AccountDeletionPage() {
         await new Promise((resolve) => setTimeout(resolve, 1500));
 
         // Construct mailto link as a fallback/demo
-        const subject = `Account Deletion Request - ${data.userRole.toUpperCase()} - ${data.email}`;
+        // const subject = `Account Deletion Request - ${data.userRole.toUpperCase()} - ${data.email}`;
         // ... (rest of logic) ...
 
         setIsSubmitting(false);
@@ -116,7 +117,7 @@ export default function AccountDeletionPage() {
                             Account Deletion Request
                         </h1>
                         <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-                            We're sorry to see you go. Please fill out the form below to process your account deletion request.
+                            We&apos;re sorry to see you go. Please fill out the form below to process your account deletion request.
                         </p>
                     </ScrollReveal>
                 </div>
@@ -241,7 +242,7 @@ export default function AccountDeletionPage() {
                                         <div className="space-y-2">
                                             <label className="text-sm font-medium leading-none text-slate-700">Preferred Contact Method *</label>
                                             <Select
-                                                onValueChange={(val) => setValue("preferredContact", val as any)}
+                                                onValueChange={(val) => setValue("preferredContact", val as "email" | "phone" | "whatsapp" | "sms")}
                                                 defaultValue={watch("preferredContact")}
                                             >
                                                 <SelectTrigger className={errors.preferredContact ? "border-red-500 bg-white" : "bg-white"}>

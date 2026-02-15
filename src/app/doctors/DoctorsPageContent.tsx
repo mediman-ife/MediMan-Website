@@ -1,6 +1,6 @@
 'use client';
 
-import { Suspense, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDoctors } from '@/services/api';
 import DoctorFilters from '@/components/doctors/DoctorFilters';
 import DoctorsGrid from '@/components/doctors/DoctorsGrid';
@@ -81,7 +81,13 @@ export default function DoctorsPageContent({ initialFilters, initialServices, in
         setPage(1); // Reset to page 1 on search
     };
 
-    const handleFilterChange = (newFilters: any) => {
+    const handleFilterChange = (newFilters: {
+        gender: string[];
+        consultationType: string[];
+        service: string[];
+        languages: string[];
+        clinic?: string[];
+    }) => {
         setSelectedFilters(newFilters);
         setPage(1); // Reset to page 1 on filter change
     };

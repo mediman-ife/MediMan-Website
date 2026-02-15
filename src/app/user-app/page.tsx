@@ -22,7 +22,7 @@ export default function UserAppPage() {
     useEffect(() => {
         // Platform detection logic
         const detectPlatform = () => {
-            const ua = navigator.userAgent || navigator.vendor || (window as any).opera;
+            const ua = navigator.userAgent || navigator.vendor || (window as unknown as { opera: unknown }).opera;
             const platformName = navigator.platform || '';
 
             // iOS detection
@@ -39,6 +39,7 @@ export default function UserAppPage() {
         };
 
         const currentPlatform = detectPlatform();
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setPlatform(currentPlatform);
         // eslint-disable-next-line react-hooks/exhaustive-deps
 

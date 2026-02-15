@@ -4,7 +4,7 @@ import { Suspense } from 'react';
 import { useDoctorProfile } from '@/services/api';
 import Image from 'next/image';
 import Link from 'next/link';
-import { MapPin, Clock, Video, Stethoscope, Star, Globe, Calendar, DollarSign, ArrowLeft } from 'lucide-react';
+import { MapPin, Video, Stethoscope, Star, Globe, DollarSign, ArrowLeft } from 'lucide-react';
 import { useParams } from 'next/navigation';
 
 function DoctorProfileContent() {
@@ -30,7 +30,7 @@ function DoctorProfileContent() {
                     <Stethoscope className="h-12 w-12 text-red-500" />
                 </div>
                 <h2 className="text-2xl font-bold text-slate-800">Doctor Not Found</h2>
-                <p className="text-slate-500 max-w-md">We couldn't retrieve this doctor's information. They may have been removed or the link is incorrect.</p>
+                <p className="text-slate-500 max-w-md">We couldn&apos;t retrieve this doctor&apos;s information. They may have been removed or the link is incorrect.</p>
                 <Link href="/doctors" className="mt-4 rounded-full bg-slate-900 px-6 py-2.5 font-medium text-white transition-colors hover:bg-slate-800">
                     Back to Doctors
                 </Link>
@@ -110,6 +110,7 @@ function DoctorProfileContent() {
                             <a
                                 href="https://app.mediman.life"
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 className="flex-1 sm:flex-none items-center justify-center rounded-xl bg-brand-blue px-8 py-3 font-semibold text-white shadow-lg shadow-brand-blue/25 transition-all hover:bg-brand-dark hover:shadow-brand-blue/40 transform active:scale-95"
                             >
                                 Book Appointment

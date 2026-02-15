@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { cn } from '@/lib/utils';
 import { Loader2 } from 'lucide-react';
 
 const PLAY_STORE =
@@ -22,7 +21,7 @@ export default function DoctorAppPage() {
     useEffect(() => {
         // Platform detection logic
         const detectPlatform = () => {
-            const ua = navigator.userAgent || navigator.vendor || (window as any).opera;
+            const ua = navigator.userAgent || navigator.vendor || (window as unknown as { opera: unknown }).opera;
             const platformName = navigator.platform || '';
 
             // iOS detection
@@ -39,6 +38,7 @@ export default function DoctorAppPage() {
         };
 
         const currentPlatform = detectPlatform();
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setPlatform(currentPlatform);
 
         // Redirect logic

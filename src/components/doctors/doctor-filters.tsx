@@ -12,7 +12,6 @@ import {
 import { Button } from '@/components/ui/button';
 import { Search } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { useDebounce } from '@/lib/hooks/use-debounce'; // We need to create this hook or implement logic directly
 
 export function DoctorFilters() {
   const router = useRouter();
@@ -22,12 +21,24 @@ export function DoctorFilters() {
   const [specialty, setSpecialty] = useState(searchParams.get('specialty') || '');
   const [location, setLocation] = useState(searchParams.get('location') || '');
 
+  const updateFilters = (newFilters: { query: string; specialty: string; location: string }) => {
+    const params = new URLSearchParams();
+    if (newFilters.query) params.set('query', newFilters.query);
+    if (newFilters.specialty && newFilters.specialty !== 'all')
+      params.set('specialty', newFilters.specialty);
+    if (newFilters.location && newFilters.location !== 'all')
+      params.set('location', newFilters.location);
+
+    router.push(`/doctors?${params.toString()}`);
+  };
+
   // Simple debounce logic for query
   useEffect(() => {
     const timer = setTimeout(() => {
       updateFilters({ query, specialty, location });
     }, 500);
     return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
   // Update immediately for selects
@@ -39,17 +50,6 @@ export function DoctorFilters() {
   const handleLocationChange = (val: string) => {
     setLocation(val);
     updateFilters({ query, specialty, location: val });
-  };
-
-  const updateFilters = (newFilters: { query: string; specialty: string; location: string }) => {
-    const params = new URLSearchParams();
-    if (newFilters.query) params.set('query', newFilters.query);
-    if (newFilters.specialty && newFilters.specialty !== 'all')
-      params.set('specialty', newFilters.specialty);
-    if (newFilters.location && newFilters.location !== 'all')
-      params.set('location', newFilters.location);
-
-    router.push(`/doctors?${params.toString()}`);
   };
 
   return (

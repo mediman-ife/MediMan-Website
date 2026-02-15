@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Star, Quote } from 'lucide-react';
+import { Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const testimonials = [
@@ -91,7 +91,7 @@ export function TestimonialsCarousel() {
             >
               <div className="bg-white p-8 rounded-3xl border border-brand-blue/12 shadow-xl shadow-brand-blue/8 relative hover:shadow-2xl transition-shadow duration-300 ring-1 ring-brand-blue/5">
                 <span className="absolute top-6 right-6 text-6xl text-slate-200 font-serif leading-none select-none">
-                  "
+                  &quot;
                 </span>
 
                 <div className="flex gap-1 mb-4">
@@ -101,7 +101,7 @@ export function TestimonialsCarousel() {
                 </div>
 
                 <p className="text-lg text-slate-700 italic relative z-10 mb-6 leading-relaxed">
-                  "{testimonial.text}"
+                  &quot;{testimonial.text}&quot;
                 </p>
 
                 <div className="flex items-center gap-4">

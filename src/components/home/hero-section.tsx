@@ -1,8 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ShieldCheck, FileText, Users, Clock, Video } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { ShieldCheck, FileText, Users, Video } from 'lucide-react';
 
 export function HeroSection() {
   return (

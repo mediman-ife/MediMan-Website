@@ -1,57 +1,91 @@
-import { DoctorFilters } from '@/components/doctors/doctor-filters';
-import { DoctorsGrid } from '@/components/doctors/doctors-grid';
-import { getDoctors } from '@/actions/getDoctors';
 import { Suspense } from 'react';
-import { Metadata } from 'next';
-import { ScrollReveal } from '@/components/ui/scroll-reveal';
+import DoctorsPageContent from './DoctorsPageContent';
+import { FilterConstants, Service, Language, Clinic } from '@/types/doctor';
 
-interface DoctorsPageProps {
-  searchParams: Promise<{
-    specialty?: string;
-    location?: string;
-    query?: string;
-  }>;
+const API_BASE_URL = 'https://api.mediman.life';
+const API_KEY = 'jmziDgOf+BmlBA8CJMkBT1hWAQltr1vh';
+
+async function getFilterConstants(): Promise<FilterConstants | undefined> {
+  try {
+    const res = await fetch(`${API_BASE_URL}/publicRoutes/getFilterConstants`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json', 'key': API_KEY },
+      next: { revalidate: 3600 } // Revalidate every hour
+    });
+    if (!res.ok) return undefined;
+    const data = await res.json();
+    return data.data;
+  } catch (error) {
+    console.error('Error fetching filter constants:', error);
+    return undefined;
+  }
 }
 
-export async function generateMetadata({ searchParams }: DoctorsPageProps): Promise<Metadata> {
-  const params = await searchParams;
-  const specialty = params.specialty || 'Doctors';
-  const location = params.location ? `in ${params.location}` : '';
-
-  return {
-    title: `Best ${specialty} ${location} | MediMan`,
-    description: `Find top rated ${specialty} ${location}. Book video consultations or in-clinic appointments on MediMan.`,
-  };
+async function getAllServices(): Promise<Service[] | undefined> {
+  try {
+    const res = await fetch(`${API_BASE_URL}/publicRoutes/getAllServices`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json', 'key': API_KEY },
+      next: { revalidate: 3600 }
+    });
+    if (!res.ok) return undefined;
+    const data = await res.json();
+    return data.data;
+  } catch (error) {
+    console.error('Error fetching services:', error);
+    return undefined;
+  }
 }
 
-export default async function DoctorsPage({ searchParams }: DoctorsPageProps) {
-  const params = await searchParams;
-  const doctors = await getDoctors(params);
+async function getAllLanguages(): Promise<Language[] | undefined> {
+  try {
+    const res = await fetch(`${API_BASE_URL}/publicRoutes/getAllLanguages`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json', 'key': API_KEY },
+      next: { revalidate: 3600 }
+    });
+    if (!res.ok) return undefined;
+    const data = await res.json();
+    return data.data;
+  } catch (error) {
+    console.error('Error fetching languages:', error);
+    return undefined;
+  }
+}
+
+async function getAllClinics(): Promise<Clinic[] | undefined> {
+  try {
+    const res = await fetch(`${API_BASE_URL}/publicRoutes/getAllClinics`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json', 'key': API_KEY },
+      next: { revalidate: 3600 }
+    });
+    if (!res.ok) return undefined;
+    const data = await res.json();
+    return data.data;
+  } catch (error) {
+    console.error('Error fetching clinics:', error);
+    return undefined;
+  }
+}
+
+export default async function DoctorsPage() {
+  // Parallel fetching of filter data
+  const [filterConstants, services, languages, clinics] = await Promise.all([
+    getFilterConstants(),
+    getAllServices(),
+    getAllLanguages(),
+    getAllClinics(),
+  ]);
 
   return (
-    <div className="container py-8 md:py-12">
-      <ScrollReveal variant="fade-up">
-        <div className="flex flex-col gap-4 mb-8">
-          <h1 className="text-3xl font-bold tracking-tight">Find Your Doctor</h1>
-          <p className="text-muted-foreground w-1/2">
-            Search, filter, and book appointments with trusted healthcare professionals.
-          </p>
-        </div>
-      </ScrollReveal>
-
-      <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 items-start">
-        <ScrollReveal variant="fade-right">
-          <aside className="sticky top-24">
-            <Suspense fallback={<div>Loading filters...</div>}>
-              <DoctorFilters />
-            </Suspense>
-          </aside>
-        </ScrollReveal>
-
-        <main>
-          <DoctorsGrid doctors={doctors} />
-        </main>
-      </div>
-    </div>
+    <Suspense fallback={<div className="min-h-screen bg-slate-50 pt-32 text-center">Loading...</div>}>
+      <DoctorsPageContent
+        initialFilters={filterConstants}
+        initialServices={services}
+        initialLanguages={languages}
+        initialClinics={clinics}
+      />
+    </Suspense>
   );
 }

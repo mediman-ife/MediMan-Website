@@ -1,19 +1,16 @@
 import Link from 'next/link';
 import {
   Facebook,
-  Twitter,
   Instagram,
   Linkedin,
   Mail,
   Phone,
-  MapPin,
   Youtube,
   HelpCircle,
   MessageCircle,
   FileText,
   Stethoscope,
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/ui/logo';
 
 export function Footer() {
@@ -112,6 +109,7 @@ export function Footer() {
               <a
                 href="https://play.google.com/store/apps/details?id=com.mediman.doctor"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="hover:opacity-90 transition-opacity w-fit bg-white/5 p-1 rounded-lg border border-white/10 hover:bg-white/10"
               >
                 <img
@@ -123,6 +121,7 @@ export function Footer() {
               <a
                 href="https://apps.apple.com/us/app/mediman-doctor/id6445903387"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="hover:opacity-90 transition-opacity w-fit bg-white/5 p-1 rounded-lg border border-white/10 hover:bg-white/10"
               >
                 <img

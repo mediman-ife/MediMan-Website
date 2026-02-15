@@ -81,7 +81,7 @@ export function Footer() {
             <h3 className="text-white font-bold text-lg">Support</h3>
             <div className="flex flex-col space-y-4 text-slate-400 items-start w-fit mx-auto lg:mx-0">
               <div className="flex items-start gap-3 group justify-start">
-                <Phone className="h-4 w-4 text-brand-blue flex-shrink-0 mt-0.5 group-hover:text-blue-400 transition-colors" />
+                <Phone className="h-4 w-4 text-slate-400 flex-shrink-0 mt-0.5 group-hover:text-brand-blue transition-colors" />
                 <a
                   href="tel:+94114668668"
                   className="hover:text-brand-blue transition-colors font-medium"
@@ -90,7 +90,7 @@ export function Footer() {
                 </a>
               </div>
               <div className="flex items-start gap-3 group justify-start">
-                <Mail className="h-4 w-4 text-brand-blue flex-shrink-0 mt-0.5 group-hover:text-blue-400 transition-colors" />
+                <Mail className="h-4 w-4 text-slate-400 flex-shrink-0 mt-0.5 group-hover:text-brand-blue transition-colors" />
                 <a
                   href="mailto:support@mediman.life"
                   className="hover:text-brand-blue transition-colors break-all"

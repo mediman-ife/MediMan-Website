@@ -176,6 +176,9 @@ export function Footer() {
             <Link href="/privacy-policy" className="hover:text-brand-blue transition-colors">
               Privacy Policy
             </Link>
+            <Link href="/delete-account" className="hover:text-brand-blue transition-colors">
+              Unsubscribe
+            </Link>
           </nav>
         </div>
       </div>

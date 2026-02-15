@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description:
     'The simplest way to see your doctor. Video consultations, e-prescriptions, and family health records in one secure platform.',
   icons: {
-    icon: '/favicon.ico', // Ensure we add a favicon later
+    icon: '/icon.png',
   },
 };
 

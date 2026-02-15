@@ -2,16 +2,23 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { cn } from '@/lib/utils';
+import { Loader2 } from 'lucide-react';
 
 const PLAY_STORE =
     'https://play.google.com/store/apps/details?id=com.mediman.patient&pcampaignid=web_share';
-const APP_STORE = 'https://apps.apple.com/lk/app/mediman-healthcare-anywhere/id6751712281';
+const APP_STORE =
+    'https://apps.apple.com/lk/app/mediman-healthcare-anywhere/id6751712281';
 
 export default function UserAppPage() {
-    const [status, setStatus] = useState('Detecting your device...');
-    const [subStatus, setSubStatus] = useState('Please wait a moment');
+    const router = useRouter();
+    const [status, setStatus] = useState('Checking device...');
+    const [subStatus, setSubStatus] = useState('Please wait...');
     const [showButtons, setShowButtons] = useState(false);
-    const [platform, setPlatform] = useState<{ type: string; name: string } | null>(null);
+    const [platform, setPlatform] = useState<{ type: string; name: string } | null>(
+        null
+    );
 
     useEffect(() => {
         // Platform detection logic
@@ -38,88 +45,107 @@ export default function UserAppPage() {
         // Redirect logic
         const handleRedirect = () => {
             if (currentPlatform.type === 'android') {
-                setStatus('Android detected');
-                setSubStatus('Opening Google Play Store...');
+                setStatus('Opening Google Play Store...');
+                setSubStatus('Redirecting you to the app...');
                 window.location.href = PLAY_STORE;
 
                 // Fallback
                 setTimeout(() => {
-                    setStatus('Taking too long?');
-                    setSubStatus('Tap the button below');
+                    setStatus('Manual Download');
+                    setSubStatus('Tap current store below');
                     setShowButtons(true);
-                }, 2500);
-
+                }, 1500);
             } else if (currentPlatform.type === 'ios') {
-                setStatus('iOS detected');
-                setSubStatus('Opening App Store...');
+                setStatus('Opening App Store...');
+                setSubStatus('Redirecting you to the app...');
                 window.location.href = APP_STORE;
 
                 // Fallback
                 setTimeout(() => {
-                    setStatus('Taking too long?');
-                    setSubStatus('Tap the button below');
+                    setStatus('Manual Download');
+                    setSubStatus('Tap current store below');
                     setShowButtons(true);
-                }, 2500);
-
+                }, 1500);
             } else {
-                // Desktop
+                // Desktop -> Redirect to Home
+                setStatus('Redirecting to Website...');
+                setSubStatus('App is available on mobile devices');
                 setTimeout(() => {
-                    setStatus('Choose your platform');
-                    setSubStatus('Available on Android and iOS');
-                    setShowButtons(true);
-                }, 400);
+                    router.push('/');
+                }, 2000);
             }
         };
 
-        // Initial run
-        const timer = setTimeout(handleRedirect, 300);
+        // Initial run - Rapid redirect (100ms)
+        const timer = setTimeout(handleRedirect, 100);
 
         // Cleanup
         return () => clearTimeout(timer);
-    }, []);
+    }, [router]);
 
     return (
-        <div className="min-h-screen flex items-center justify-center p-5 bg-gradient-to-br from-[#667eea] to-[#764ba2] font-sans">
-            <div className="bg-white p-10 rounded-2xl shadow-2xl max-w-[420px] w-full text-center animate-in fade-in slide-in-from-bottom-5 duration-500">
-                <div className="w-20 h-20 mx-auto mb-5 bg-white rounded-2xl flex items-center justify-center shadow-lg overflow-hidden">
+        <div className="min-h-screen flex items-center justify-center p-5 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-900 font-sans relative overflow-hidden">
+            {/* Background Blobs */}
+            <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-blue-400/20 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] bg-indigo-500/20 rounded-full blur-[100px] pointer-events-none" />
+
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-8 md:p-12 rounded-3xl shadow-2xl max-w-[420px] w-full text-center animate-in fade-in zoom-in-95 duration-500 relative z-10">
+                <div className="w-24 h-24 mx-auto mb-6 bg-white rounded-3xl flex items-center justify-center shadow-xl overflow-hidden ring-4 ring-white/10">
                     <Image
-                        src="https://play-lh.googleusercontent.com/To4n03gt4BFvZFDHKEc00d7boClF8D_GTca118r127-pX1h-eJ6pwsKeY4m85VEFYwyIuIs0Ht3noOatX8m0Og=w480-h960-rw"
+                        src="/images/userappicon.webp"
                         alt="MediMan Logo"
-                        width={80}
-                        height={80}
+                        width={96}
+                        height={96}
                         className="object-cover w-full h-full"
-                        unoptimized
+                        priority
                     />
                 </div>
 
-                <h1 className="text-[#333] mb-2 text-2xl font-bold">MediMan</h1>
-                <p className="text-[#666] text-[15px] mb-8 leading-relaxed">
-                    Find your favourite doctors, get e-prescriptions, manage appointments and followups, and keep your medical records securely in one app.
+                <h1 className="text-white mb-2 text-3xl font-extrabold tracking-tight drop-shadow-sm">
+                    MediMan
+                </h1>
+                <p className="text-blue-50/80 text-base mb-8 leading-relaxed font-medium">
+                    Healthcare anytime, anywhere. Your prescriptions, appointments, and
+                    records in one secure place.
                 </p>
 
-                <div className="bg-[#0056ff] p-5 rounded-xl mb-6 min-h-[80px] flex flex-col items-center justify-center">
-                    {/* Note: Original HTML used #0056ff blue bg for status box, keeping distinct from Doctor app which used light grey */}
-                    {!showButtons && (
-                        <div className="w-9 h-9 border-[3px] border-[#f3f3f3] border-t-[#667eea] rounded-full animate-spin mb-3"></div>
+                <div className="bg-black/20 backdrop-blur-md border border-white/10 p-5 rounded-2xl mb-6 min-h-[80px] flex flex-col items-center justify-center transition-all duration-300">
+                    {!showButtons && platform?.type !== 'desktop' && (
+                        <Loader2 className="w-8 h-8 text-white animate-spin mb-3" />
                     )}
-                    <div className="text-white font-semibold text-[15px]">{status}</div> {/* Changed text to white for contrast on blue */}
-                    <div className="text-white/80 text-[13px] mt-1.5">{subStatus}</div>
+                    <div className="text-white font-bold text-lg">{status}</div>
+                    <div className="text-blue-200 text-sm mt-1.5 font-medium">
+                        {subStatus}
+                    </div>
                 </div>
 
                 {showButtons && (
-                    <div className="flex flex-col gap-3 animate-in fade-in duration-300">
+                    <div className="flex flex-col gap-3 animate-in fade-in slide-in-from-bottom-2 duration-300">
                         <a
                             href={platform?.type === 'ios' ? APP_STORE : PLAY_STORE}
-                            className="flex items-center justify-center gap-3 px-6 py-4 rounded-xl text-white font-semibold text-[15px] transition-all hover:-translate-y-0.5 shadow-lg hover:shadow-xl bg-gradient-to-br from-[#667eea] to-[#764ba2]"
+                            className="flex items-center justify-center gap-3 px-6 py-4 rounded-xl text-white font-bold text-lg transition-all hover:-translate-y-1 shadow-lg hover:shadow-blue-500/50 bg-gradient-to-r from-blue-500 to-indigo-600 border border-white/20"
                         >
-                            {platform?.type === 'ios' ? 'Download on App Store' : 'Get it on Google Play'}
+                            {platform?.type === 'ios'
+                                ? 'Download on App Store'
+                                : 'Get it on Google Play'}
                         </a>
-                        <a
-                            href={platform?.type === 'ios' ? PLAY_STORE : APP_STORE}
-                            className="flex items-center justify-center gap-3 px-6 py-4 rounded-xl text-[#667eea] font-semibold text-[15px] transition-all border-2 border-[#e0e0e0] hover:border-[#667eea] hover:bg-[#f8f9ff]"
+                        <button
+                            onClick={() => router.push('/')}
+                            className="flex items-center justify-center gap-3 px-6 py-3.5 rounded-xl text-white/90 font-semibold text-base transition-all hover:bg-white/10 border border-white/10 hover:border-white/30"
                         >
-                            {platform?.type === 'ios' ? 'Get for Android' : 'Download for iOS'}
-                        </a>
+                            Visit Website
+                        </button>
+                    </div>
+                )}
+
+                {platform?.type === 'desktop' && (
+                    <div className="mt-6">
+                        <button
+                            onClick={() => router.push('/')}
+                            className="text-white/70 hover:text-white text-sm font-medium underline-offset-4 hover:underline transition-colors"
+                        >
+                            Click here if you are not redirected
+                        </button>
                     </div>
                 )}
             </div>

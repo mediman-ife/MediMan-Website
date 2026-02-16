@@ -48,7 +48,10 @@ export const useDoctors = (params: SearchParams) => {
         body.filter = cleanFilter;
     }
 
-    const endpoint = searchTerm ? '/publicRoutes/searchDoctors' : '/publicRoutes/getAllDoctors';
+    // Use searchDoctors if there is a search term OR if there are filters
+    const endpoint = (searchTerm || Object.keys(cleanFilter).length > 0)
+        ? '/publicRoutes/searchDoctors'
+        : '/publicRoutes/getAllDoctors';
     const key = [endpoint, JSON.stringify(body)];
 
     const { data, error, isLoading } = useSWR(key, async ([url, bodyString]) => {

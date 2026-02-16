@@ -134,7 +134,22 @@ export default function DoctorFilters({ filters, selectedFilters, onFilterChange
                 </div>
             )}
 
-
+            {/* Languages */}
+            {filters?.languages && filters.languages.length > 0 && (
+                <div>
+                    <h3 className="mb-4 text-xs font-bold uppercase tracking-wider text-slate-400">Language</h3>
+                    <div className="space-y-2">
+                        {filters.languages.map((language) => (
+                            <CheckboxItem
+                                key={typeof language === 'string' ? language : (language as any)._id}
+                                label={typeof language === 'string' ? language : (language as any).name}
+                                checked={(selectedFilters.languages || []).includes(typeof language === 'string' ? language : (language as any).name)}
+                                onChange={() => handleCheckboxChange('languages', typeof language === 'string' ? language : (language as any).name)}
+                            />
+                        ))}
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

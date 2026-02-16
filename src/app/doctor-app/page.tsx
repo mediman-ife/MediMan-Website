@@ -21,7 +21,7 @@ export default function DoctorAppPage() {
     useEffect(() => {
         // Platform detection logic
         const detectPlatform = () => {
-            const ua = navigator.userAgent || navigator.vendor || (window as unknown as { opera: unknown }).opera;
+            const ua = (navigator.userAgent || navigator.vendor || (window as unknown as { opera: unknown }).opera || '') as string;
             const platformName = navigator.platform || '';
 
             // iOS detection

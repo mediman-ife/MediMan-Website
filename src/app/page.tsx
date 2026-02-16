@@ -6,6 +6,7 @@ import { HowItWorksSection } from '@/components/home/how-it-works-section';
 import { CareSection } from '@/components/home/care-section';
 import { TestimonialsSection } from '@/components/home/testimonials-section';
 import { CTASection } from '@/components/home/cta-section';
+import { FeaturedDoctors } from '@/components/home/featured-doctors';
 
 export default function Home() {
   return (
@@ -24,6 +25,10 @@ export default function Home() {
         <SectionDivider />
 
         <HowItWorksSection />
+
+        <SectionDivider />
+
+        <FeaturedDoctors />
 
         <SectionDivider />
 

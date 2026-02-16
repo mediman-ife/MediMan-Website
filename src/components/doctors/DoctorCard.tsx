@@ -8,9 +8,10 @@ import { useRouter } from 'next/navigation';
 
 interface DoctorCardProps {
     doctor: Doctor;
+    hideProfileButton?: boolean;
 }
 
-export default function DoctorCard({ doctor }: DoctorCardProps) {
+export default function DoctorCard({ doctor, hideProfileButton = false }: DoctorCardProps) {
     const getChargesText = () => {
         const charges = [];
         if (doctor.charges?.onlineCharge?.amount) {
@@ -32,10 +33,11 @@ export default function DoctorCard({ doctor }: DoctorCardProps) {
         router.push(`/doctors/${doctor._id}`);
     };
 
+
     return (
         <div
             onClick={handleCardClick}
-            className="group relative flex flex-col overflow-hidden rounded-3xl bg-white border border-slate-200/80 shadow-xl shadow-brand-blue/8 ring-1 ring-brand-blue/5 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 cursor-pointer"
+            className="group relative flex flex-col h-full overflow-hidden rounded-3xl bg-white border border-slate-200/80 shadow-xl shadow-brand-blue/8 ring-1 ring-brand-blue/5 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 cursor-pointer"
         >
             {/* Image Section */}
             <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
@@ -89,10 +91,12 @@ export default function DoctorCard({ doctor }: DoctorCardProps) {
                     </div>
                 </div>
 
-                <div className="mt-4 grid grid-cols-2 gap-2">
-                    <Link href={`/doctors/${doctor._id}`} className="flex items-center justify-center rounded-xl bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-100">
-                        Profile
-                    </Link>
+                <div className={`mt-4 grid ${hideProfileButton ? 'grid-cols-1' : 'grid-cols-2'} gap-2`}>
+                    {!hideProfileButton && (
+                        <Link href={`/doctors/${doctor._id}`} className="flex items-center justify-center rounded-xl bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-100">
+                            Profile
+                        </Link>
+                    )}
                     <Link href="https://app.mediman.life" target="_blank" className="flex items-center justify-center rounded-xl bg-brand-blue px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-blue/20 transition-all hover:bg-brand-dark hover:shadow-brand-blue/40">
                         Book Now
                     </Link>

@@ -26,7 +26,17 @@ import { ExternalLink } from 'lucide-react';
 
 export default function DoctorFilters({ filters, selectedFilters, onFilterChange, isLoading }: DoctorFiltersProps) {
 
-    // ... (handleCheckboxChange and loading state)
+    const handleCheckboxChange = (key: keyof SelectedFilters, value: string) => {
+        const currentValues = selectedFilters[key] || [];
+        const newValues = currentValues.includes(value)
+            ? currentValues.filter((v) => v !== value)
+            : [...currentValues, value];
+
+        onFilterChange({
+            ...selectedFilters,
+            [key]: newValues,
+        });
+    };
 
     const CheckboxItem = ({
         label,

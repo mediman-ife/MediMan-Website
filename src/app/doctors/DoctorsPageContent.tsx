@@ -5,6 +5,7 @@ import { useDoctors } from '@/services/api';
 import DoctorFilters from '@/components/doctors/DoctorFilters';
 import DoctorsGrid from '@/components/doctors/DoctorsGrid';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
+import { BackgroundGlow } from '@/components/ui/background-glow';
 import { FilterConstants, Service, Language, Clinic } from '@/types/doctor';
 
 interface DoctorsPageContentProps {
@@ -108,8 +109,9 @@ export default function DoctorsPageContent({ initialFilters, initialServices, in
 
     return (
         <>
-            <main className="min-h-screen bg-slate-50 pb-20 pt-32">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <main className="min-h-screen bg-slate-50 relative overflow-hidden pb-20 pt-32">
+                <BackgroundGlow />
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
                     {/* Header */}
                     <div className="mb-10 text-center">

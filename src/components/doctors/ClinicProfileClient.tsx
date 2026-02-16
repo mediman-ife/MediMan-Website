@@ -5,6 +5,7 @@ import { useClinic, useDoctors } from '@/services/api';
 import DoctorCard from '@/components/doctors/DoctorCard';
 import { MapPin, Phone, Mail, Building2, Calendar, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import { BackgroundGlow } from '@/components/ui/background-glow';
 
 interface ClinicProfileClientProps {
     id: string;
@@ -37,10 +38,14 @@ export default function ClinicProfileClient({ id }: ClinicProfileClientProps) {
         );
     }
 
+
+    // ...
+
     return (
-        <div className="min-h-screen bg-slate-50 pb-20">
+        <div className="min-h-screen bg-slate-50 relative overflow-hidden pb-20 font-sans">
+            <BackgroundGlow />
             {/* Header Section */}
-            <div className="bg-white border-b border-slate-200">
+            <div className="bg-white/80 backdrop-blur-md border-b border-slate-200/60 sticky top-0 z-20">
                 <div className="container mx-auto px-4 py-8">
                     <Link href="/doctors" className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-brand-blue mb-6 transition-colors">
                         <ArrowLeft className="h-4 w-4" />
@@ -95,7 +100,7 @@ export default function ClinicProfileClient({ id }: ClinicProfileClientProps) {
                                             <span className="text-brand-blue text-xs font-bold">{clinic.hospitalFee.currency === 'LKR' ? 'Rs' : '$'}</span>
                                         </div>
                                         <span className="font-medium">
-                                            Hospital Fee: {clinic.hospitalFee.amount} {clinic.hospitalFee.currency}
+                                            Hospital Fee: {clinic.hospitalFee.currency} {clinic.hospitalFee.amount}
                                         </span>
                                     </div>
                                 )}

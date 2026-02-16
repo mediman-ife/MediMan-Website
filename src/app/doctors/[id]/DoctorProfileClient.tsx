@@ -86,7 +86,7 @@ export default function DoctorProfileClient({ id }: { id: string }) {
                         <div className="mt-4 flex-1 text-center lg:text-left lg:pb-2">
                             <div className="flex items-center justify-center lg:justify-start gap-2 mb-1">
                                 <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">
-                                    {doctor.title} {doctor.firstName} {doctor.lastName}
+                                    {doctor.title?.endsWith('.') ? doctor.title : `${doctor.title}.`} {doctor.firstName} {doctor.lastName}
                                 </h1>
                                 <span className="inline-flex items-center rounded-full bg-blue-100 px-2 py-0.5 text-xs font-bold text-blue-700">
                                     VERIFIED
@@ -136,7 +136,7 @@ export default function DoctorProfileClient({ id }: { id: string }) {
                             </div>
                             <div className="p-3 rounded-xl bg-slate-50 border border-slate-100">
                                 <span className="block text-xs text-slate-500 uppercase tracking-wider mb-1">Languages</span>
-                                <span className="text-sm font-semibold text-slate-900 truncate" title={doctor.languages?.join(', ')}>
+                                <span className="text-sm font-semibold text-slate-900 block leading-snug">
                                     {doctor.languages?.join(', ') || 'English'}
                                 </span>
                             </div>
@@ -144,7 +144,13 @@ export default function DoctorProfileClient({ id }: { id: string }) {
                                 <span className="block text-xs text-slate-500 uppercase tracking-wider mb-1">Country</span>
                                 <span className="text-lg font-semibold text-slate-900 flex items-center gap-1">
                                     <Globe className="h-4 w-4 text-slate-400" />
-                                    {doctor.country || 'LK'}
+                                    {(() => {
+                                        try {
+                                            return doctor.country ? new Intl.DisplayNames(['en'], { type: 'region' }).of(doctor.country) : 'Sri Lanka';
+                                        } catch (e) {
+                                            return doctor.country || 'Sri Lanka';
+                                        }
+                                    })()}
                                 </span>
                             </div>
                         </div>

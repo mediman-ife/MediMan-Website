@@ -35,7 +35,7 @@ export default function DoctorCard({ doctor }: DoctorCardProps) {
     return (
         <div
             onClick={handleCardClick}
-            className="group relative flex flex-col overflow-hidden rounded-2xl bg-white border border-slate-200/60 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-brand-blue/20 cursor-pointer"
+            className="group relative flex flex-col overflow-hidden rounded-3xl bg-white border border-slate-200/80 shadow-xl shadow-brand-blue/8 ring-1 ring-brand-blue/5 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 cursor-pointer"
         >
             {/* Image Section */}
             <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
@@ -72,8 +72,8 @@ export default function DoctorCard({ doctor }: DoctorCardProps) {
                 <div className="mb-1 text-xs font-medium uppercase tracking-wider text-brand-blue">
                     {doctor.designation || 'Specialist'}
                 </div>
-                <h3 className="mb-1 text-lg font-bold text-slate-900 group-hover:text-brand-blue transition-colors line-clamp-1" title={`${doctor.title} ${doctor.firstName} ${doctor.lastName}`}>
-                    {doctor.title} {doctor.firstName} {doctor.lastName}
+                <h3 className="mb-1 text-lg font-bold text-slate-900 group-hover:text-brand-blue transition-colors line-clamp-1" title={`${doctor.title?.endsWith('.') ? doctor.title : `${doctor.title}.`} ${doctor.firstName} ${doctor.lastName}`}>
+                    {doctor.title?.endsWith('.') ? doctor.title : `${doctor.title}.`} {doctor.firstName} {doctor.lastName}
                 </h3>
 
                 {doctor.attachedHospital && (

@@ -7,6 +7,7 @@ interface SelectedFilters {
     consultationType: string[];
     service: string[];
     languages: string[];
+    clinic: string[];
 
     [key: string]: string[]; // allow index access
 }
@@ -145,6 +146,23 @@ export default function DoctorFilters({ filters, selectedFilters, onFilterChange
                                 label={typeof language === 'string' ? language : (language as any).name}
                                 checked={(selectedFilters.languages || []).includes(typeof language === 'string' ? language : (language as any).name)}
                                 onChange={() => handleCheckboxChange('languages', typeof language === 'string' ? language : (language as any).name)}
+                            />
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            {/* Clinics */}
+            {filters?.clinics && filters.clinics.length > 0 && (
+                <div>
+                    <h3 className="mb-4 text-xs font-bold uppercase tracking-wider text-slate-400">Clinics (Hospitals)</h3>
+                    <div className="space-y-1 max-h-[300px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-200 scrollbar-track-transparent hover:scrollbar-thumb-slate-300">
+                        {filters.clinics.map((clinic) => (
+                            <CheckboxItem
+                                key={clinic._id}
+                                label={clinic.clinicName}
+                                checked={(selectedFilters.clinic || []).includes(clinic._id)}
+                                onChange={() => handleCheckboxChange('clinic', clinic._id)}
                             />
                         ))}
                     </div>

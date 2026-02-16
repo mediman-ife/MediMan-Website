@@ -26,6 +26,7 @@ export default function DoctorsPageContent({ initialFilters, initialServices, in
     const initialTypes = searchParams.getAll('type');
     const initialServicesParams = searchParams.getAll('service');
     const initialLanguagesParams = searchParams.getAll('language');
+    const initialClinicsParams = searchParams.getAll('clinic');
 
     const [searchTerm, setSearchTerm] = useState(initialSearch);
     const [page, setPage] = useState(initialPage);
@@ -33,7 +34,8 @@ export default function DoctorsPageContent({ initialFilters, initialServices, in
         gender: initialGenders,
         consultationType: initialTypes,
         service: initialServicesParams,
-        languages: initialLanguagesParams
+        languages: initialLanguagesParams,
+        clinic: initialClinicsParams
     });
 
     const combinedFilters = {
@@ -55,6 +57,7 @@ export default function DoctorsPageContent({ initialFilters, initialServices, in
             consultationType: selectedFilters.consultationType.length > 0 ? selectedFilters.consultationType : undefined,
             service: selectedFilters.service.length > 0 ? selectedFilters.service : undefined,
             languages: selectedFilters.languages.length > 0 ? selectedFilters.languages : undefined,
+            clinic: selectedFilters.clinic.length > 0 ? selectedFilters.clinic : undefined,
         }
     });
 
@@ -68,6 +71,7 @@ export default function DoctorsPageContent({ initialFilters, initialServices, in
         selectedFilters.consultationType.forEach(t => params.append('type', t));
         selectedFilters.service.forEach(s => params.append('service', s));
         selectedFilters.languages.forEach(l => params.append('language', l));
+        selectedFilters.clinic.forEach(c => params.append('clinic', c));
 
         router.replace(`${pathname}?${params.toString()}`, { scroll: false });
     }, [searchTerm, page, selectedFilters, router, pathname]);
@@ -82,6 +86,7 @@ export default function DoctorsPageContent({ initialFilters, initialServices, in
         consultationType: string[];
         service: string[];
         languages: string[];
+        clinic: string[];
     }) => {
         setSelectedFilters({
             ...newFilters
@@ -94,7 +99,8 @@ export default function DoctorsPageContent({ initialFilters, initialServices, in
             gender: [],
             consultationType: [],
             service: [],
-            languages: []
+            languages: [],
+            clinic: []
         });
         setSearchTerm('');
         setPage(1);

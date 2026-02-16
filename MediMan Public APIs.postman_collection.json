@@ -1,212 +1,248 @@
 {
-  "info": {
-    "_postman_id": "8ee4b224-9628-4d5b-bb23-94d266be3e01",
-    "name": "MediMan Public APIs",
-    "description": "Public APIs for searching doctors and fetching metadata for filters.",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "41319604",
-    "_collection_link": "https://go.postman.co/collection/41319604-8ee4b224-9628-4d5b-bb23-94d266be3e01?source=collection_link"
-  },
-  "item": [
-    {
-      "name": "Search Doctors",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "key",
-            "value": "{{public_key}}",
-            "type": "text"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"searchTerm\": \"tisa\",\n    \"pageNumber\": 1,\n    \"limit\": 10,\n    \"filter\": {\n        \"gender\": [],\n        \"consultationType\": [],\n        \"languages\": [],\n        \"service\": []\n    }\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
+    "info": {
+        "_postman_id": "public-endpoints-collection",
+        "name": "MediMan Public Endpoints",
+        "description": "Collection for MediMan public-facing APIs including doctor search and metadata.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Search Doctors",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "key",
+                        "value": "{{publicAccessKey}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"pageNumber\": 1,\n    \"limit\": 10,\n    \"searchTerm\": \"\",\n    \"filter\": {\n        \"clinic\": [],\n        \"service\": [],\n        \"gender\": [],\n        \"consultationType\": [],\n        \"languages\": []\n    },\n    \"sortBy\": \"createdAt\",\n    \"sortOrder\": \"desc\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/publicRoutes/searchDoctors",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "publicRoutes",
+                        "searchDoctors"
+                    ]
+                }
+            },
+            "response": []
         },
-        "url": {
-          "raw": "{{base_url}}/publicRoutes/searchDoctors",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "publicRoutes",
-            "searchDoctors"
-          ]
+        {
+            "name": "Search Doctors (Flexible Filters)",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "key",
+                        "value": "{{publicAccessKey}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"pageNumber\": 1,\n    \"limit\": 10,\n    \"name\": \"Dr. Smith\",\n    \"filter\": {\n        \"clinics\": [\"CLINIC_ID_1\", \"CLINIC_ID_2\"],\n        \"services\": \"SERVICE_ID\",\n        \"genders\": [\"Male\", \"Female\"],\n        \"consultationTypes\": \"ONLINE\",\n        \"language\": \"English\"\n    },\n    \"sortBy\": \"createdAt\",\n    \"sortOrder\": \"desc\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/publicRoutes/searchDoctors",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "publicRoutes",
+                        "searchDoctors"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get All Doctors (List)",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "key",
+                        "value": "{{publicAccessKey}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"pageNumber\": 1,\n    \"limit\": 10\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/publicRoutes/getAllDoctors",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "publicRoutes",
+                        "getAllDoctors"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Doctor Profile Info",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "key",
+                        "value": "{{publicAccessKey}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/publicRoutes/getDoctorProfileInfo/:doctorId",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "publicRoutes",
+                        "getDoctorProfileInfo",
+                        ":doctorId"
+                    ],
+                    "variable": [
+                        {
+                            "key": "doctorId",
+                            "value": "REPLACE_WITH_DOCTOR_ID"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get All Services",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "key",
+                        "value": "{{publicAccessKey}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/publicRoutes/getAllServices",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "publicRoutes",
+                        "getAllServices"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get All Clinics",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "key",
+                        "value": "{{publicAccessKey}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/publicRoutes/getAllClinics",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "publicRoutes",
+                        "getAllClinics"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get All Languages",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "key",
+                        "value": "{{publicAccessKey}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/publicRoutes/getAllLanguages",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "publicRoutes",
+                        "getAllLanguages"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Filter Constants",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "key",
+                        "value": "{{publicAccessKey}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/publicRoutes/getFilterConstants",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "publicRoutes",
+                        "getFilterConstants"
+                    ]
+                }
+            },
+            "response": []
         }
-      },
-      "response": []
-    },
-    {
-      "name": "Get All Services",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "key",
-            "value": "{{public_key}}",
-            "type": "text"
-          }
-        ],
-        "url": {
-          "raw": "{{base_url}}/publicRoutes/getAllServices",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "publicRoutes",
-            "getAllServices"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Get All Clinics",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "key",
-            "value": "{{public_key}}",
-            "type": "text"
-          }
-        ],
-        "url": {
-          "raw": "{{base_url}}/publicRoutes/getAllClinics",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "publicRoutes",
-            "getAllClinics"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Get All Languages",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "key",
-            "value": "{{public_key}}",
-            "type": "text"
-          }
-        ],
-        "url": {
-          "raw": "{{base_url}}/publicRoutes/getAllLanguages",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "publicRoutes",
-            "getAllLanguages"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Get Filter Constants",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "key",
-            "value": "{{public_key}}",
-            "type": "text"
-          }
-        ],
-        "url": {
-          "raw": "{{base_url}}/publicRoutes/getFilterConstants",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "publicRoutes",
-            "getFilterConstants"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Get All Doctors",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "key",
+    ],
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "https://api.medicman.com",
+            "type": "string"
+        },
+        {
+            "key": "publicAccessKey",
             "value": "jmziDgOf+BmlBA8CJMkBT1hWAQltr1vh",
-            "type": "text"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    // \"searchTerm\": \"jhon\",\n    // \"filter\": {\n    //     // \"service\": [\n    //     //     \"676ee616cc61fe8cef8fd89c\"\n    //     // ],\n    //     // \"languages\": [\n    //     //     \"English\"\n    //     // ],\n    //     //   \"consultationType\": [\n    //     //     \"ONLINE\"\n    //     // ],\n    //     // \"gender\": [\n    //     //     \"Female\"\n    //     // ],\n    //     // \"experienceMin\": 5,\n    //     // \"experienceMax\": 25,\n    //     // \"chargeMin\": 400,\n    //     // \"chargeMax\": 700,\n    //     \"slotDurationMin\": 10,\n    //     \"slotDurationMax\": 35\n    // },\n    // // \"sortBy\": \"charge\",\n    // // \"sortOrder\": \"asc\",\n    \"pageNumber\": 1,\n    \"limit\": 10\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "{{baseUrl}}/publicRoutes/getAllDoctors",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "publicRoutes",
-            "getAllDoctors"
-          ]
+            "type": "string"
         }
-      },
-      "response": []
-    },
-    {
-      "name": "Get Doctor Profile",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{baseUrl}}/publicRoutes/getDoctorProfileInfo/6926888f393aa1ad6fbbd99c?key=jmziDgOf+BmlBA8CJMkBT1hWAQltr1vh",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "publicRoutes",
-            "getDoctorProfileInfo",
-            "6926888f393aa1ad6fbbd99c"
-          ],
-          "query": [
-            {
-              "key": "key",
-              "value": "jmziDgOf+BmlBA8CJMkBT1hWAQltr1vh",
-              "type": "text"
-            }
-          ]
-        }
-      },
-      "response": []
-    }
-  ],
-  "variable": [
-    {
-      "key": "base_url",
-      "value": "http://localhost:5001",
-      "type": "string"
-    },
-    {
-      "key": "public_key",
-      "value": "YOUR_PUBLIC_ACCESS_KEY",
-      "type": "string"
-    }
-  ]
+    ]
 }

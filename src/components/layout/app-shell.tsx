@@ -1,8 +1,8 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { Header } from '@/components/layout/Header_temp';
-import { Footer } from '@/components/layout/Footer_temp';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
 
 export function AppShell({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();

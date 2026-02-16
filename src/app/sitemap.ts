@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 // In a real app, fetch dynamic doctor IDs here
+export const dynamic = 'force-static';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://mediman.life';

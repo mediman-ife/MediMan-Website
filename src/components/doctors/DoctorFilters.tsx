@@ -7,7 +7,7 @@ interface SelectedFilters {
     consultationType: string[];
     service: string[];
     languages: string[];
-    clinic: string[];
+
     [key: string]: string[]; // allow index access
 }
 
@@ -19,10 +19,7 @@ interface DoctorFiltersProps {
 }
 
 export default function DoctorFilters({ filters, selectedFilters, onFilterChange, isLoading }: DoctorFiltersProps) {
-    if (process.env.NODE_ENV === 'development') {
-        console.log('DoctorFilters filters:', filters);
-        console.log('DoctorFilters filters.clinics:', filters?.clinics);
-    }
+
 
     const handleCheckboxChange = (category: string, value: string) => {
         const currentValues = selectedFilters[category] || [];
@@ -137,22 +134,7 @@ export default function DoctorFilters({ filters, selectedFilters, onFilterChange
                 </div>
             )}
 
-            {/* Clinics */}
-            {filters?.clinics && filters.clinics.length > 0 && (
-                <div>
-                    <h3 className="mb-4 text-xs font-bold uppercase tracking-wider text-slate-400">Clinics (Hospitals)</h3>
-                    <div className="space-y-1 max-h-[300px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-200 scrollbar-track-transparent hover:scrollbar-thumb-slate-300">
-                        {filters.clinics.map((clinic) => (
-                            <CheckboxItem
-                                key={clinic._id}
-                                label={clinic.clinicName}
-                                checked={(selectedFilters.clinic || []).includes(clinic._id)}
-                                onChange={() => handleCheckboxChange('clinic', clinic._id)}
-                            />
-                        ))}
-                    </div>
-                </div>
-            )}
+
         </div>
     );
 }

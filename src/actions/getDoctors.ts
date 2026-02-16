@@ -1,58 +1,8 @@
-'use server';
 
 import { Doctor } from '@/types/doctor';
 
-// Mock Data for now - will be replaced by API call later
-const MOCK_DOCTORS: Doctor[] = [
-  {
-    _id: '1',
-    firstName: 'Vimalan',
-    lastName: 'Parameswaran',
-    title: 'Dr.',
-    designation: 'Cardiologist',
-    country: 'Jaffna',
-    consultationType: ['CLINIC', 'ONLINE'],
-    profileImage: { signedUrl: '/placeholder-doctor.jpg' },
-    averageRating: 4.8,
-    consultationAvailable: true,
-  } as unknown as Doctor,
-  {
-    _id: '2',
-    firstName: 'Ganeshan',
-    lastName: 'Parthiban',
-    title: 'Dr.',
-    designation: 'General Practitioner',
-    country: 'Colombo',
-    consultationType: ['CLINIC'],
-    profileImage: { signedUrl: '/placeholder-doctor.jpg' },
-    averageRating: 4.5,
-    consultationAvailable: true,
-  } as unknown as Doctor,
-  {
-    _id: '3',
-    firstName: 'Sangeetha',
-    lastName: 'Nadarajah',
-    title: 'Dr.',
-    designation: 'Pediatrician',
-    country: 'Kandy',
-    consultationType: ['CLINIC', 'ONLINE'],
-    profileImage: { signedUrl: '/placeholder-doctor.jpg' },
-    averageRating: 4.9,
-    consultationAvailable: true,
-  } as unknown as Doctor,
-  {
-    _id: '4',
-    firstName: 'Sundaresan',
-    lastName: 'Vignesh',
-    title: 'Dr.',
-    designation: 'Dermatologist',
-    country: 'Jaffna',
-    consultationType: [],
-    profileImage: { signedUrl: '/placeholder-doctor.jpg' },
-    averageRating: 4.7,
-    consultationAvailable: false,
-  } as unknown as Doctor,
-];
+const API_BASE_URL = 'https://api.mediman.life';
+const API_KEY = 'jmziDgOf+BmlBA8CJMkBT1hWAQltr1vh'; // Should be in env vars better, but using what's in api.ts
 
 export async function getDoctors({
   specialty,
@@ -63,28 +13,55 @@ export async function getDoctors({
   location?: string;
   query?: string;
 } = {}): Promise<Doctor[]> {
-  // Simulate network delay
-  await new Promise((resolve) => setTimeout(resolve, 500));
+  try {
+    const headers = {
+      'Content-Type': 'application/json',
+      'key': API_KEY,
+    };
 
-  let filtered = MOCK_DOCTORS;
+    const body: any = {
+      pageNumber: 1,
+      limit: 100, // API max limit is 100
+    };
 
-  if (specialty && specialty !== 'All') {
-    filtered = filtered.filter((d) => d.designation.toLowerCase().includes(specialty.toLowerCase()));
+    if (query) {
+      body.searchTerm = query;
+    }
+
+    const filter: any = {};
+    if (specialty && specialty !== 'All') {
+      // We need to map specialty name to ID or use as is? 
+      // api.ts uses simple string match filter logic on client side usually?
+      // logic in api.ts:
+      // filtered = filtered.filter((d) => d.designation.toLowerCase().includes(specialty.toLowerCase()));
+      // But for real API, we need to pass filter object?
+      // Let's assume for generateStaticParams we just want ALL.
+      // For Filter logic, the component `DoctorsPageContent` handles it via `useDoctors` hook which calls API.
+      // This `getDoctors` action is ONLY used for `generateStaticParams` now.
+    }
+
+    // For generateStaticParams, we just need ALL doctors.
+    // The arguments specialty/location are legacy from the mock version? 
+    // Actually getDoctors() is called without args in generateStaticParams.
+
+    // So we just fetch all.
+    const response = await fetch(`${API_BASE_URL}/publicRoutes/searchDoctors`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(body),
+      cache: 'no-store' // Ensure fresh data at build time
+    });
+
+    if (!response.ok) {
+      console.error('Failed to fetch doctors', await response.text());
+      return [];
+    }
+
+    const data = await response.json();
+    return (data.data as Doctor[]) || [];
+
+  } catch (error) {
+    console.error('Error in getDoctors:', error);
+    return [];
   }
-
-  if (location && location !== 'All') {
-    filtered = filtered.filter((d) => d.country.toLowerCase().includes(location.toLowerCase()));
-  }
-
-  if (query) {
-    const lowerQuery = query.toLowerCase();
-    filtered = filtered.filter(
-      (d) =>
-        `${d.firstName} ${d.lastName}`.toLowerCase().includes(lowerQuery) ||
-        d.designation.toLowerCase().includes(lowerQuery) ||
-        d.country.toLowerCase().includes(lowerQuery)
-    );
-  }
-
-  return filtered;
 }

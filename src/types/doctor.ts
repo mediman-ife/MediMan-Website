@@ -33,11 +33,21 @@ export interface Clinic {
   city?: string;
 }
 
+export interface Service {
+  _id: string;
+  name: string;
+}
+
+export interface Language {
+  _id: string;
+  name: string;
+}
+
 export interface FilterConstants {
   genders: string[];
   consultationTypes: string[];
-  services?: { _id: string; name: string }[];
-  languages?: string[];
+  services?: Service[];
+  languages?: Language[];
   clinics?: Clinic[];
 }
 

@@ -83,7 +83,7 @@ export default function AccountDeletionPage() {
     const onSubmit = async (data: FormData) => {
         setIsSubmitting(true);
         // Simulate API call
-        console.log("Form Data:", data);
+
 
         // Simulate delay
         await new Promise((resolve) => setTimeout(resolve, 1500));

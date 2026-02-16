@@ -70,7 +70,7 @@ export const useDoctors = (params: SearchParams) => {
 export const useFilterConstants = () => {
     const { data, error, isLoading } = useSWR('/publicRoutes/getFilterConstants', (url) => fetcher(url, { method: 'GET' }));
     return {
-        filters: (data?.data as FilterConstants) | undefined,
+        filters: (data?.data as FilterConstants) || undefined,
         isLoading,
         isError: error
     };

@@ -5,13 +5,13 @@ import { useDoctors } from '@/services/api';
 import DoctorFilters from '@/components/doctors/DoctorFilters';
 import DoctorsGrid from '@/components/doctors/DoctorsGrid';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
-import { FilterConstants, Service, Language } from '@/types/doctor';
+import { FilterConstants, Service, Language, Clinic } from '@/types/doctor';
 
 interface DoctorsPageContentProps {
     initialFilters: FilterConstants | undefined;
     initialServices: Service[] | undefined;
-    initialLanguages: Language[] | null | undefined;
-    initialClinics: import('@/types/doctor').Clinic[] | undefined;
+    initialLanguages: Language[] | undefined;
+    initialClinics: Clinic[] | undefined;
 }
 
 export default function DoctorsPageContent({ initialFilters, initialServices, initialLanguages, initialClinics }: DoctorsPageContentProps) {
@@ -26,7 +26,6 @@ export default function DoctorsPageContent({ initialFilters, initialServices, in
     const initialTypes = searchParams.getAll('type');
     const initialServicesParams = searchParams.getAll('service');
     const initialLanguagesParams = searchParams.getAll('language');
-    const initialClinicsParams = searchParams.getAll('clinic');
 
     const [searchTerm, setSearchTerm] = useState(initialSearch);
     const [page, setPage] = useState(initialPage);
@@ -34,8 +33,7 @@ export default function DoctorsPageContent({ initialFilters, initialServices, in
         gender: initialGenders,
         consultationType: initialTypes,
         service: initialServicesParams,
-        languages: initialLanguagesParams,
-        clinic: initialClinicsParams
+        languages: initialLanguagesParams
     });
 
     const combinedFilters = {
@@ -57,7 +55,6 @@ export default function DoctorsPageContent({ initialFilters, initialServices, in
             consultationType: selectedFilters.consultationType.length > 0 ? selectedFilters.consultationType : undefined,
             service: selectedFilters.service.length > 0 ? selectedFilters.service : undefined,
             languages: selectedFilters.languages.length > 0 ? selectedFilters.languages : undefined,
-            clinic: selectedFilters.clinic && selectedFilters.clinic.length > 0 ? selectedFilters.clinic : undefined,
         }
     });
 
@@ -71,7 +68,6 @@ export default function DoctorsPageContent({ initialFilters, initialServices, in
         selectedFilters.consultationType.forEach(t => params.append('type', t));
         selectedFilters.service.forEach(s => params.append('service', s));
         selectedFilters.languages.forEach(l => params.append('language', l));
-        selectedFilters.clinic?.forEach(c => params.append('clinic', c));
 
         router.replace(`${pathname}?${params.toString()}`, { scroll: false });
     }, [searchTerm, page, selectedFilters, router, pathname]);
@@ -86,9 +82,10 @@ export default function DoctorsPageContent({ initialFilters, initialServices, in
         consultationType: string[];
         service: string[];
         languages: string[];
-        clinic?: string[];
     }) => {
-        setSelectedFilters(newFilters);
+        setSelectedFilters({
+            ...newFilters
+        });
         setPage(1); // Reset to page 1 on filter change
     };
 
@@ -97,8 +94,7 @@ export default function DoctorsPageContent({ initialFilters, initialServices, in
             gender: [],
             consultationType: [],
             service: [],
-            languages: [],
-            clinic: []
+            languages: []
         });
         setSearchTerm('');
         setPage(1);

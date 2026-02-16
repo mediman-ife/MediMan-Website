@@ -53,29 +53,18 @@ async function getAllLanguages(): Promise<Language[] | undefined> {
   }
 }
 
-async function getAllClinics(): Promise<Clinic[] | undefined> {
-  try {
-    const res = await fetch(`${API_BASE_URL}/publicRoutes/getAllClinics`, {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json', 'key': API_KEY },
-      next: { revalidate: 3600 }
-    });
-    if (!res.ok) return undefined;
-    const data = await res.json();
-    return data.data;
-  } catch (error) {
-    console.error('Error fetching clinics:', error);
-    return undefined;
-  }
-}
+
+
+// ... (imports)
+
+// ... (fetch functions)
 
 export default async function DoctorsPage() {
   // Parallel fetching of filter data
-  const [filterConstants, services, languages, clinics] = await Promise.all([
+  const [filterConstants, services, languages] = await Promise.all([
     getFilterConstants(),
     getAllServices(),
     getAllLanguages(),
-    getAllClinics(),
   ]);
 
   return (
@@ -84,7 +73,7 @@ export default async function DoctorsPage() {
         initialFilters={filterConstants}
         initialServices={services}
         initialLanguages={languages}
-        initialClinics={clinics}
+        initialClinics={[]}
       />
     </Suspense>
   );

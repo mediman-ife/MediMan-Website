@@ -1,6 +1,6 @@
 
 import useSWR from 'swr';
-import { Doctor, FilterConstants, SearchParams } from '../types/doctor';
+import { Doctor, FilterConstants, SearchParams, Clinic } from '../types/doctor';
 
 const API_BASE_URL = 'https://api.mediman.life';
 const API_KEY = 'jmziDgOf+BmlBA8CJMkBT1hWAQltr1vh';
@@ -102,11 +102,21 @@ export const useLanguages = () => {
 export const useClinics = () => {
     const { data, error, isLoading } = useSWR('/publicRoutes/getAllClinics', (url) => fetcher(url, { method: 'GET' }));
     return {
-        clinics: data?.data,
+        clinics: data?.data as Clinic[],
         isLoading,
         isError: error
     }
 }
+
+export const useClinic = (id: string) => {
+    const { clinics, isLoading, isError } = useClinics();
+    const clinic = clinics?.find(c => c._id === id);
+    return {
+        clinic,
+        isLoading,
+        isError
+    };
+};
 
 export const useDoctorProfile = (id: string) => {
     const { data, error, isLoading } = useSWR(id ? `/publicRoutes/getDoctorProfileInfo/${id}` : null, (url) => fetcher(url, { method: 'GET' }));

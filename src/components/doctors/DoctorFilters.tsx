@@ -19,71 +19,71 @@ interface DoctorFiltersProps {
     isLoading: boolean;
 }
 
+import Link from 'next/link';
+import { ExternalLink } from 'lucide-react';
+
+// ... (existing interfaces)
+
 export default function DoctorFilters({ filters, selectedFilters, onFilterChange, isLoading }: DoctorFiltersProps) {
 
-
-    const handleCheckboxChange = (category: string, value: string) => {
-        const currentValues = selectedFilters[category] || [];
-        const newValues = currentValues.includes(value)
-            ? currentValues.filter((item: string) => item !== value)
-            : [...currentValues, value];
-
-        onFilterChange({ ...selectedFilters, [category]: newValues });
-    };
-
-    if (isLoading) return (
-        <div className="animate-pulse space-y-6">
-            {[1, 2, 3].map((i) => (
-                <div key={i} className="space-y-3">
-                    <div className="h-4 w-1/3 bg-slate-200 rounded"></div>
-                    <div className="space-y-2">
-                        <div className="h-8 bg-slate-100 rounded"></div>
-                        <div className="h-8 bg-slate-100 rounded"></div>
-                    </div>
-                </div>
-            ))}
-        </div>
-    );
+    // ... (handleCheckboxChange and loading state)
 
     const CheckboxItem = ({
         label,
         checked,
         onChange,
-        count
+        count,
+        profileId
     }: {
         label: string;
         checked: boolean;
         onChange: () => void;
         count?: number;
+        profileId?: string;
     }) => (
-        <label className="flex items-center gap-3 cursor-pointer group py-1">
-            <div className="relative flex items-center justify-center h-5 w-5 shrink-0">
-                <input
-                    type="checkbox"
-                    className="peer sr-only"
-                    checked={checked}
-                    onChange={onChange}
-                />
-                <div className="absolute inset-0 rounded-[6px] border-2 border-slate-300 bg-white transition-all duration-200 peer-checked:border-brand-blue peer-checked:bg-brand-blue group-hover:border-brand-blue/60 peer-focus:ring-2 peer-focus:ring-brand-blue/20 shadow-sm"></div>
-                <svg
-                    className="absolute w-3.5 h-3.5 text-white opacity-0 peer-checked:opacity-100 transition-all duration-200 transform peer-checked:scale-100 scale-50"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
-            </div>
-            <span className={`text-[15px] font-medium transition-colors ${checked ? 'text-brand-blue' : 'text-slate-600 group-hover:text-slate-900'}`}>
-                {label}
-            </span>
-            {count !== undefined && (
-                <span className="ml-auto text-xs font-medium text-slate-400 bg-slate-50 px-2 py-0.5 rounded-full">
-                    {count}
+        <div className="flex items-center justify-between group py-1">
+            <label className="flex items-center gap-3 cursor-pointer flex-1">
+                <div className="relative flex items-center justify-center h-5 w-5 shrink-0">
+                    <input
+                        type="checkbox"
+                        className="peer sr-only"
+                        checked={checked}
+                        onChange={onChange}
+                    />
+                    <div className="absolute inset-0 rounded-[6px] border-2 border-slate-300 bg-white transition-all duration-200 peer-checked:border-brand-blue peer-checked:bg-brand-blue group-hover:border-brand-blue/60 peer-focus:ring-2 peer-focus:ring-brand-blue/20 shadow-sm"></div>
+                    <svg
+                        className="absolute w-3.5 h-3.5 text-white opacity-0 peer-checked:opacity-100 transition-all duration-200 transform peer-checked:scale-100 scale-50"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                    >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                </div>
+                <span className={`text-[15px] font-medium transition-colors ${checked ? 'text-brand-blue' : 'text-slate-600 group-hover:text-slate-900'} line-clamp-1`}>
+                    {label}
                 </span>
-            )}
-        </label>
+            </label>
+
+            <div className="flex items-center gap-2">
+                {profileId && (
+                    <Link
+                        href={`/clinic/${profileId}`}
+                        className="p-1.5 text-slate-400 hover:text-brand-blue hover:bg-blue-50 rounded-md transition-all"
+                        title="View Clinic Profile"
+                    >
+                        <ExternalLink className="w-3.5 h-3.5" />
+                    </Link>
+                )}
+
+                {count !== undefined && (
+                    <span className="text-xs font-medium text-slate-400 bg-slate-50 px-2 py-0.5 rounded-full">
+                        {count}
+                    </span>
+                )}
+            </div>
+        </div>
     );
 
     return (
@@ -163,6 +163,7 @@ export default function DoctorFilters({ filters, selectedFilters, onFilterChange
                                 label={clinic.clinicName}
                                 checked={(selectedFilters.clinic || []).includes(clinic._id)}
                                 onChange={() => handleCheckboxChange('clinic', clinic._id)}
+                                profileId={clinic._id}
                             />
                         ))}
                     </div>

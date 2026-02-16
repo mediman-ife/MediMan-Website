@@ -31,6 +31,24 @@ export interface Clinic {
   clinicName: string;
   clinicAddress?: string;
   city?: string;
+  email?: string;
+  officialPhoneNumber?: string;
+  notifyPhoneNumber?: string;
+  customerPhoneNumber?: string;
+  hospitalFee?: {
+    amount: number;
+    currency: string;
+  };
+  clinicLocation?: {
+    latitude: string;
+    longitude: string;
+  };
+  logo?: {
+    fileUrl: string;
+    signedUrl?: string; // API might return signedUrl for logo too
+    fileKey: string;
+  };
+  isActive?: boolean;
 }
 
 export interface Service {

@@ -103,10 +103,10 @@ export default function DoctorAppPage() {
                 <h1 className="text-white mb-2 text-3xl font-extrabold tracking-tight drop-shadow-sm">
                     MediMan Doctor
                 </h1>
-                <p className="text-blue-50/80 text-base mb-8 leading-relaxed font-medium">
+                <span className="block text-blue-50/80 text-base mb-8 leading-relaxed font-medium">
                     The ultimate platform for modern healthcare professionals. Connect,
                     consult, and care.
-                </p>
+                </span>
 
                 <div className="bg-black/20 backdrop-blur-md border border-white/10 p-5 rounded-2xl mb-6 min-h-[80px] flex flex-col items-center justify-center transition-all duration-300">
                     {!showButtons && platform?.type !== 'desktop' && (

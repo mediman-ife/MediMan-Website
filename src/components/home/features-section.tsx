@@ -21,10 +21,10 @@ export function FeaturesSection() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-3">
               Healthcare Reimagined
             </h2>
-            <p className="text-slate-600 text-base md:text-lg mt-2">
+            <span className="block text-slate-600 text-base md:text-lg mt-2">
               Skip the waiting rooms. Experience the future of medical consultations with features
               designed for your convenience.
-            </p>
+            </span>
           </div>
         </ScrollReveal>
 

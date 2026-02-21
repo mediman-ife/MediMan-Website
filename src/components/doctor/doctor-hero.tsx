@@ -34,10 +34,10 @@ export function DoctorHero() {
                             </h1>
 
                             {/* Subtext */}
-                            <p className="max-w-[600px] text-slate-600 text-base md:text-lg leading-relaxed mx-auto lg:mx-0">
+                            <span className="block max-w-[600px] text-slate-600 text-base md:text-lg leading-relaxed mx-auto lg:mx-0">
                                 The leading tech enabler for global healthcare is now live. Connect with local and overseas
                                 patients, manage appointments, and track earnings in one premium app.
-                            </p>
+                            </span>
 
                             {/* App Store Buttons - Matching Home Page Structure */}
                             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start pt-4">

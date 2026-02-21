@@ -16,9 +16,9 @@ export function BlogCTA() {
                         <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight">
                             Ready to take control of your health?
                         </h2>
-                        <p className="text-lg text-blue-100/90 max-w-lg mx-auto md:mx-0">
+                        <span className="block text-lg text-blue-100/90 max-w-lg mx-auto md:mx-0">
                             Download the MediMan app today and consult with top doctors anytime, anywhere.
-                        </p>
+                        </span>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                             <Link

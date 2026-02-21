@@ -130,7 +130,7 @@ export default function AccountDeletionPage() {
                             <CardTitle className="text-2xl font-bold text-slate-900">Deletion Request Form</CardTitle>
                             <CardDescription>Please fill out all required fields marked with *</CardDescription>
                         </CardHeader>
-                        <CardContent className="px-6 md:px-10 pt-0 pb-2">
+                        <CardContent className="p-6 md:px-10 md:py-8">
                             {isSuccess ? (
                                 <div className="text-center py-10 space-y-6">
                                     <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto">
@@ -362,9 +362,9 @@ export default function AccountDeletionPage() {
                                         >
                                             {isSubmitting ? "Processing Request..." : "Submit Deletion Request"}
                                         </Button>
-                                        <p className="text-center text-xs text-slate-400 mt-4">
+                                        <span className="block text-center text-xs text-slate-400 mt-4">
                                             By submitting this form, you authorize MediMan to process your data deletion as per the <Link href="/privacy-policy" className="underline hover:text-brand-purple">Privacy Policy</Link> and <Link href="/terms-and-conditions" className="underline hover:text-brand-purple">Terms & Conditions</Link>.
-                                        </p>
+                                        </span>
                                     </div>
 
                                 </form>

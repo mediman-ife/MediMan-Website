@@ -100,9 +100,9 @@ export function TestimonialsCarousel() {
                   ))}
                 </div>
 
-                <p className="text-lg text-slate-700 italic relative z-10 mb-6 leading-relaxed">
+                <span className="block text-lg text-slate-700 italic relative z-10 mb-6 leading-relaxed">
                   &quot;{testimonial.text}&quot;
-                </p>
+                </span>
 
                 <div className="flex items-center gap-4">
                   <div

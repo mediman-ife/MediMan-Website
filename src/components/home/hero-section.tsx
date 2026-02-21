@@ -24,10 +24,10 @@ export function HeroSection() {
             <h1 className="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl leading-[1.1]">
               Healthcare. <span className="text-brand-red">Simplified.</span>
             </h1>
-            <p className="max-w-[600px] text-slate-600 text-base md:text-lg leading-relaxed mx-auto lg:mx-0">
+            <span className="block max-w-[600px] text-slate-600 text-base md:text-lg leading-relaxed mx-auto lg:mx-0">
               Connect with top specialists, get instant e-prescriptions, and manage your
               family&apos;s health records in one secure, premium app.
-            </p>
+            </span>
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start pt-4">
               <Link
                 href="https://apps.apple.com/us/app/mediman-patient/id6445903276"

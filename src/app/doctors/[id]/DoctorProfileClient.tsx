@@ -94,10 +94,10 @@ export default function DoctorProfileClient({ id }: { id: string }) {
                             </div>
                             <p className="text-lg font-medium text-brand-blue">{doctor.designation || 'Specialist'}</p>
                             {doctor.attachedHospital && (
-                                <p className="text-slate-500 mt-1 flex items-center justify-center lg:justify-start gap-1.5">
+                                <span className="block text-slate-500 mt-1 flex items-center justify-center lg:justify-start gap-1.5">
                                     <MapPin className="h-4 w-4" />
                                     {doctor.attachedHospital}
-                                </p>
+                                </span>
                             )}
                         </div>
 

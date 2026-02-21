@@ -24,10 +24,10 @@ export function Footer() {
             <Link href="/" className="inline-block transition-opacity hover:opacity-80">
               <Logo className="h-14 w-auto text-white" />
             </Link>
-            <p className="text-slate-400 leading-relaxed max-w-sm mx-auto lg:mx-0">
+            <span className="block text-slate-400 leading-relaxed max-w-sm mx-auto lg:mx-0">
               MediMan is a secure telehealth app to book trusted doctors, video consult, get
               e-prescriptions, and manage family records – all in one place.
-            </p>
+            </span>
 
             {/* Social Links */}
             <div className="flex space-x-3 justify-center lg:justify-start">
@@ -101,9 +101,9 @@ export function Footer() {
           {/* Column 4: Download App */}
           <div className="space-y-6 text-center lg:text-left">
             <h3 className="text-white font-bold text-lg">Get the App</h3>
-            <p className="text-sm text-slate-400 leading-relaxed mx-auto lg:mx-0 max-w-xs lg:max-w-none">
+            <span className="block text-sm text-slate-400 leading-relaxed mx-auto lg:mx-0 max-w-xs lg:max-w-none">
               For licensed practitioners. Manage your practice on the go.
-            </p>
+            </span>
 
             <div className="flex flex-col gap-3 items-center lg:items-start">
               <a

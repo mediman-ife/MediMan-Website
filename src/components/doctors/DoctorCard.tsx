@@ -79,9 +79,9 @@ export default function DoctorCard({ doctor, hideProfileButton = false }: Doctor
                 </h3>
 
                 {doctor.attachedHospital && (
-                    <p className="mb-3 text-sm text-slate-500 line-clamp-1">
+                    <span className="block mb-3 text-sm text-slate-500 line-clamp-1">
                         🏥 {doctor.attachedHospital}
-                    </p>
+                    </span>
                 )}
 
                 <div className="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">

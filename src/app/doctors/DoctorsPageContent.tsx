@@ -118,7 +118,7 @@ export default function DoctorsPageContent({ initialFilters, initialServices, in
                         <h1 className="mb-4 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
                             Find Your <span className="text-brand-blue">Specialist</span>
                         </h1>
-                        <p className="mx-auto max-w-2xl text-lg text-slate-600">
+                        <p className="text-lg text-slate-600">
                             Connect with top-rated doctors for online consultations or in-person visits.
                         </p>
                     </div>

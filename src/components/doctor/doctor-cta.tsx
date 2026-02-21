@@ -24,7 +24,7 @@ export function DoctorCTA() {
                 <p className="text-2xl text-brand-purple-light font-medium tracking-tight">
                   Because care begins from home..!
                 </p>
-                <p className="text-slate-300 text-lg leading-relaxed max-w-2xl mx-auto font-light">
+                <p className="text-slate-300 text-lg leading-relaxed font-light">
                   MediMan is a secure telehealth app to book trusted doctors, consult by video or
                   in–clinic, get e-prescriptions, and manage family records – all in one place.
                 </p>

@@ -116,7 +116,7 @@ export default function AccountDeletionPage() {
                         <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
                             Account Deletion Request
                         </h1>
-                        <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+                        <p className="text-lg text-slate-400">
                             We&apos;re sorry to see you go. Please fill out the form below to process your account deletion request.
                         </p>
                     </ScrollReveal>
@@ -130,7 +130,7 @@ export default function AccountDeletionPage() {
                             <CardTitle className="text-2xl font-bold text-slate-900">Deletion Request Form</CardTitle>
                             <CardDescription>Please fill out all required fields marked with *</CardDescription>
                         </CardHeader>
-                        <CardContent className="p-6 md:p-10">
+                        <CardContent className="px-6 md:px-10 pt-0 pb-2">
                             {isSuccess ? (
                                 <div className="text-center py-10 space-y-6">
                                     <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto">
@@ -139,7 +139,7 @@ export default function AccountDeletionPage() {
                                         </svg>
                                     </div>
                                     <h2 className="text-2xl font-bold text-slate-900">Request Submitted</h2>
-                                    <p className="text-slate-600 max-w-md mx-auto">
+                                    <p className="text-slate-600">
                                         Your account deletion request has been received. Our support team will process your request within 7 business days.
                                     </p>
                                     <Button asChild className="mt-6">

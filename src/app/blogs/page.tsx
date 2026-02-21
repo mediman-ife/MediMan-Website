@@ -21,7 +21,7 @@ export default function BlogListingPage() {
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-brand-purple tracking-tight leading-tight pb-2">
                         MediMan Blogs
                     </h1>
-                    <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
                         Expert articles, health tips, and the latest updates on telehealth services in Sri Lanka.
                     </p>
                 </div>

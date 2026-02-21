@@ -51,7 +51,7 @@ export function FeaturedDoctors() {
                         <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight">
                             Meet Our Specialists
                         </h2>
-                        <p className="text-slate-600 max-w-2xl mx-auto text-lg">
+                        <p className="text-slate-600 text-lg">
                             Connect with verified doctors from top hospitals. Top-tier care, available anytime.
                         </p>
                     </div>

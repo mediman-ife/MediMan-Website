@@ -118,7 +118,7 @@ export function DoctorFAQ() {
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-slate-900">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg text-slate-600 leading-relaxed">
               Everything you need to know about joining MediMan as a doctor.
             </p>
           </div>

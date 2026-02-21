@@ -89,7 +89,7 @@ export default function FAQPage() {
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
             How can we <span className="text-brand-blue">help you?</span>
           </h1>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-600 leading-relaxed">
             Find answers to common questions about appointments, prescriptions,
             and managing your health with MediMan.
           </p>
@@ -171,7 +171,7 @@ export default function FAQPage() {
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
                 Still have questions?
               </h2>
-              <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+              <p className="text-xl text-blue-100">
                 Can&apos;t find the answer you&apos;re looking for? Our friendly support
                 team is here to help.
               </p>
